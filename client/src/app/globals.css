@@ -1,5 +1,5 @@
 :root {
-    --white-background: #F2F2F2;
+    --white-background: #fff;
     --dark-background: #1a1a1a;
     --grean: #30D158;
     --hover: #0B4833;
@@ -28,4 +28,32 @@
     --grey-light2: #3F4855;
     --grey-light2-60: #E2E1DD;
     --grey-light2-80: #F7F6F2;
+
+    --font-sfpro-black: "SFProDisplay-Black";
+    --font-sfpro-black-italic: "SFProDisplay-BlackItalic";
+    --font-sfpro-bold: "SFProDisplay-Bold";
+    --font-sfpro-bold-italic: "SFProDisplay-BoldItalic";
+    --font-sfpro-heavy: "SFProDisplay-Heavy";
+    --font-sfpro-heavy-italic: "SFProDisplay-HeavyItalic";
+    --font-sfpro-light: "SFProDisplay-Light";
+    --font-sfpro-light-italic: "SFProDisplay-LightItalic";
+    --font-sfpro-medium: "SFProDisplay-Medium";
+    --font-sfpro-medium-italic: "SFProDisplay-MediumItalic";
+    --font-sfpro-regular: "SFProDisplay-Regular";
+    --font-sfpro-regular-italic: "SFProDisplay-RegularItalic";
+    --font-sfpro-semibold: "SFProDisplay-Semibold";
+    --font-sfpro-semibold-italic: "SFProDisplay-SemiboldItalic";
+    --font-sfpro-thin: "SFProDisplay-Thin";
+    --font-sfpro-thin-italic: "SFProDisplay-ThinItalic";
+    --font-sfpro-ultralight: "SFProDisplay-Ultralight";
+    --font-sfpro-ultralight-italic: "SFProDisplay-UltralightItalic";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--white-background);
 }
