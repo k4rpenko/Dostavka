@@ -1,0 +1,220 @@
+.appContainer {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.appLogin {
+  width: 55%;
+  display: flex;
+  padding: 25px;
+  color: white;
+}
+
+.LogoSvg{
+  display: flex;
+}
+
+.LogoItem{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.LogoImage {
+  display: flex;
+
+  width: 100px;
+}
+
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.loginItem{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  color: var(--hover);
+  font-family: var(--font-sfpro-bold);
+}
+
+.headingItem{
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.description {
+  margin-bottom: 20px;
+  font-family: var(--font-sfpro-regular);
+  color: #aaa;
+}
+
+.formBox{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 30px;
+
+  form {
+      display: flex;
+      flex-direction: column;
+  }
+}
+
+.formInputBox{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.formInput{
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+
+  input{
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--grey-light-80);
+      color: var(--grey-dark);
+
+      &:focus{
+          border-color: var(--hover);
+          outline: none;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+  }
+
+  h2{
+      font-size: 15px;
+      color: var(--grey-light);
+      letter-spacing: 0.3px;
+      font-family: var(--font-sfpro-regular);
+      letter-spacing: 0.3px;
+  }
+}
+
+.checkboxContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+
+  label{
+      font-family: var(--font-sfpro-regular);
+      color: var(--grey-dark);
+  }
+
+  input {
+      width: 20px;
+      height: 20px;
+      transform: scale(0.8);
+      cursor: pointer;
+  }
+
+  a {
+      color: var(--hover);
+      text-decoration: none;
+  }
+}
+
+.actions{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+
+  button {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      padding: 12px;
+      background: var(--hover);
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+
+      samp{
+          letter-spacing: 1px;
+          font-family: var(--font-sfpro-light);
+      }
+
+      &:hover {
+          background: var(--hover);
+      }
+  }
+}
+.divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+
+  span {
+    flex: 1;
+    height: 1px;
+    background-color: var(--grey-light-80);
+  }
+
+  p {
+    margin: 0 10px;
+    color: var(--grey-light-60);
+  }
+}
+.appImage {
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+}
+
+.appImageBox {
+  border-radius: 40px;
+  width: 100%;
+  height: 99%;
+  overflow: hidden;
+}
+
+.googleSignin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  background: var(--hover);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
