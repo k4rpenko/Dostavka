@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  /* ХЕДЕР */
+  .header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    box-sizing: border-box;
+
+    &__left, &__center, &__right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    &__left span, &__left a {
+      color: black;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    &__icon {
+      font-size: 20px;
+      color: #f6c023;
+    }
+
+    &__center {
+      gap: 10px;
+      color: #065f46;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  /* Основний контейнер */
+  .app__main {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Карта */
+  .app__map {
+    flex: 1;
+    height: calc(100vh - 80px);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* Інтерфейс */
+  .app__interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    background-color: #fff;
+    color: #1a202c;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Контент */
+  .app__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+    justify-content: center;
+
+    h1 {
+      font-size: 3.5vw;
+      font-weight: 400;
+      line-height: 1.1;
+      text-transform: uppercase;
+      max-height: 50vh;
+    }
+  }
+
+  .app__icons {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+    color: #047857;
+  }
+
+  .app__info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    color: #047857;
+  }
+
+  .app__form {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+
+      input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+      }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #047857;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      gap: 8px;
+
+      &:hover {
+        background-color: #065f46;
+      }
+    }
+  }
+
+  /* Кнопки */
+  .btn {
+    background-color: #065f46;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #047857;
+    }
+  }
+}
