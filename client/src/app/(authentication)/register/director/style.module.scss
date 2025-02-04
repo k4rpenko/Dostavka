@@ -6,20 +6,58 @@
     flex-direction: row;
     overflow: hidden;
     justify-content: space-between;
+    transition: background-color 0.3s, color 0.3s;
+
+    &.darkTheme {
+        background-color: #1a1a1a;
+        color: #ffffff;
+
+        .appRegister,
+        .formContainer,
+        .registerItem {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        input {
+            background-color: #333;
+            color: #fff;
+            border-color: #555;
+        }
+
+        .heading {
+            color: #4a90e2;
+        }
+
+        .description {
+            color: #bbb;
+        }
+
+        .checkboxContainer label {
+            color: #ddd;
+        }
+
+        .actions button {
+            background: #0051bb;
+        }
+    }
 }
 
 .appRegister {
     width: 55%;
     display: flex;
     padding: 25px;
-    color: white;
+    color: black;
+    background-color: white;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.LogoSvg{
+.LogoSvg {
     display: flex;
+    cursor: pointer;
 }
 
-.LogoItem{
+.LogoItem {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -27,31 +65,32 @@
 
 .LogoImage {
     display: flex;
-
     width: 100px;
 }
-
 
 .formContainer {
     width: 100%;
     display: flex;
     gap: 20px;
     flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.registerItem{
+.registerItem {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .heading {
     color: var(--hover);
     font-family: var(--font-sfpro-bold);
+    transition: color 0.3s;
 }
 
-.headingItem{
+.headingItem {
     display: flex;
     gap: 3px;
     flex-direction: column;
@@ -63,9 +102,10 @@
     margin-bottom: 20px;
     font-family: var(--font-sfpro-regular);
     color: #aaa;
+    transition: color 0.3s;
 }
 
-.formBox{
+.formBox {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -77,36 +117,37 @@
     }
 }
 
-.formInputBox{
+.formInputBox {
     display: flex;
     gap: 10px;
     flex-direction: column;
 }
 
-.formInput{
+.formInput {
     display: flex;
     gap: 5px;
     flex-direction: column;
 
-    input{
+    input {
         padding: 12px;
         margin-bottom: 10px;
         border-radius: 8px;
         border: 1px solid var(--grey-light-80);
         color: var(--grey-dark);
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 
-        &:focus{
+        &:focus {
             border-color: var(--hover);
             outline: none;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
     }
 
-    h2{
+    h2 {
         font-size: 15px;
         color: var(--grey);
         letter-spacing: 0.3px;
         font-family: var(--font-sfpro-regular);
+        transition: color 0.3s;
     }
 }
 
@@ -116,9 +157,10 @@
     align-items: center;
     margin-bottom: 15px;
 
-    label{
+    label {
         font-family: var(--font-sfpro-regular);
         color: var(--grey-dark);
+        transition: color 0.3s;
     }
 
     input {
@@ -134,7 +176,7 @@
     }
 }
 
-.actions{
+.actions {
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -153,8 +195,9 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
+        transition: background-color 0.3s;
 
-        samp{
+        samp {
             letter-spacing: 1px;
             font-family: var(--font-sfpro-light);
         }
@@ -185,3 +228,4 @@
     height: 99%;
     overflow: hidden;
 }
+
