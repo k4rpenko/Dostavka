@@ -19,7 +19,7 @@ export default function Home() {
             <div className={styles.appRegister}>
                 <div className={styles.formContainer}>
                     <div className={styles.LogoItem}>
-                        <img className={styles.LogoImage} src={isDarkMode ? "/logo/Logo-Light.png" : "/logo/Logo-Dark.png"} alt="Логотип"/>
+                        <img className={styles.LogoImage} src={isDarkMode ? "/logo/Logo-Light.png" : "/logo/Logo-Dark.png"} alt="Logo"/>
                         <div className={styles.LogoSvg} onClick={toggleTheme}>
                             {isDarkMode ? (
                                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,46 +34,46 @@ export default function Home() {
                     </div>
                     <div className={styles.registerItem}>
                         <div className={styles.headingItem}>
-                            <h2 className={styles.heading}>Реєстрація</h2>
-                            <p className={styles.description}>Приєднуйтесь до нас прямо зараз</p>
+                            <h2 className={styles.heading}>Registration</h2>
+                            <p className={styles.description}>Join us right now</p>
                         </div>
                         <form className={styles.formBox}>
                             <div className={styles.formInputBox}>
                                 <div className={styles.formInput}>
-                                    <h2>Повне ім'я</h2>
-                                    <input type="text" placeholder="Повне ім'я" />
+                                    <h2>Full Name</h2>
+                                    <input type="text" placeholder="Full Name" />
                                 </div>
                                 <div className={styles.formInput}>
-                                    <h2>Назва та адреса компанії</h2>
-                                    <input type="text" placeholder="Назва та адреса компанії" />
+                                    <h2>Company Name and Address</h2>
+                                    <input type="text" placeholder="Company Name and Address" />
                                 </div>
                                 <div className={styles.formInput}>
-                                    <h2>Електронна пошта</h2>
-                                    <input type="email" placeholder="Електронна пошта" />
+                                    <h2>Email</h2>
+                                    <input type="email" placeholder="Email" />
                                 </div>
                                 <div className={styles.formInput}>
-                                    <h2>Номер телефону</h2>
-                                    <input type="tel" placeholder="Номер телефону" />
+                                    <h2>Phone Number</h2>
+                                    <input type="tel" placeholder="Phone Number" />
                                 </div>
                                 <div className={styles.formInput}>
-                                    <h2>Пароль</h2>
-                                    <input type="password" placeholder="Пароль" />
+                                    <h2>Password</h2>
+                                    <input type="password" placeholder="Password" />
                                 </div>
                                 <div className={styles.formInput}>
-                                    <h2>Підтвердження пароля</h2>
-                                    <input type="password" placeholder="Підтвердження пароля" />
+                                    <h2>Confirm Password</h2>
+                                    <input type="password" placeholder="Confirm Password" />
                                 </div>
                             </div>
                             <div className={styles.actions}>
                                 <div className={styles.checkboxContainer}>
                                     <input type="checkbox" id="terms" />
-                                    <label htmlFor="terms">Я погоджуюсь з <a href="#">Умовами обслуговування</a> та <a href="#">Політикою конфіденційності</a></label>
+                                    <label htmlFor="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
                                 </div>
                                 <button type="submit">
                                     <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M15 19C15 16.7909 12.3137 15 9 15C5.68629 15 3 16.7909 3 19M19 16V13M19 13V10M19 13H16M19 13H22M9 12C6.79086 12 5 10.2091 5 8C5 5.79086 6.79086 4 9 4C11.2091 4 13 5.79086 13 8C13 10.2091 11.2091 12 9 12Z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                     </svg>
-                                    <span>Зареєструватися</span>
+                                    <span>Register</span>
                                 </button>
                             </div>
                         </form>
@@ -83,7 +83,7 @@ export default function Home() {
 
             <div className={styles.appImage}>
                 <div className={styles.appImageBox}>
-                    <img src="/Images/RegiserCar.jpeg" alt="фонове зображення" />
+                    <img src="/Images/RegiserCar.jpeg" alt="Background Image" />
                 </div>
             </div>
         </div>
