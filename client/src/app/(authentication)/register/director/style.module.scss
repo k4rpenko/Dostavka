@@ -6,50 +6,13 @@
     flex-direction: row;
     overflow: hidden;
     justify-content: space-between;
-    transition: background-color 0.3s, color 0.3s;
-
-    &.darkTheme {
-        background-color: #1a1a1a;
-        color: #ffffff;
-
-        .appRegister,
-        .formContainer,
-        .registerItem {
-            background-color: #1a1a1a;
-            color: #ffffff;
-        }
-
-        input {
-            background-color: #333;
-            color: #fff;
-            border-color: #555;
-        }
-
-        .heading {
-            color: #4a90e2;
-        }
-
-        .description {
-            color: #bbb;
-        }
-
-        .checkboxContainer label {
-            color: #ddd;
-        }
-
-        .actions button {
-            background: #0051bb;
-        }
-    }
 }
 
 .appRegister {
     width: 55%;
     display: flex;
     padding: 25px;
-    color: black;
-    background-color: white;
-    transition: background-color 0.3s, color 0.3s;
+    color: var(--text-color-dark);
 }
 
 .LogoSvg {
@@ -73,7 +36,6 @@
     display: flex;
     gap: 20px;
     flex-direction: column;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .registerItem {
@@ -81,13 +43,11 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .heading {
     color: var(--hover);
     font-family: var(--font-sfpro-bold);
-    transition: color 0.3s;
 }
 
 .headingItem {
@@ -101,8 +61,7 @@
 .description {
     margin-bottom: 20px;
     font-family: var(--font-sfpro-regular);
-    color: #aaa;
-    transition: color 0.3s;
+    color: var(--grey);
 }
 
 .formBox {
@@ -133,8 +92,7 @@
         margin-bottom: 10px;
         border-radius: 8px;
         border: 1px solid var(--grey-light-80);
-        color: var(--grey-dark);
-        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        color: var(--text-color-dark);
 
         &:focus {
             border-color: var(--hover);
@@ -147,7 +105,6 @@
         color: var(--grey);
         letter-spacing: 0.3px;
         font-family: var(--font-sfpro-regular);
-        transition: color 0.3s;
     }
 }
 
@@ -159,8 +116,7 @@
 
     label {
         font-family: var(--font-sfpro-regular);
-        color: var(--grey-dark);
-        transition: color 0.3s;
+        color: var(--text-color-dark);
     }
 
     input {
@@ -171,7 +127,7 @@
     }
 
     a {
-        color: var(--hover);
+        color: var(--grean-so-light);
         text-decoration: none;
     }
 }
@@ -186,7 +142,7 @@
         gap: 10px;
         width: 100%;
         padding: 12px;
-        background: var(--hover);
+        background: var(--grean);
         border: none;
         color: white;
         font-weight: bold;
@@ -195,9 +151,8 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        transition: background-color 0.3s;
 
-        samp {
+        span {
             letter-spacing: 1px;
             font-family: var(--font-sfpro-light);
         }
@@ -227,5 +182,32 @@
     width: 100%;
     height: 99%;
     overflow: hidden;
+}
+
+.darkTheme {
+    background-color: var(--dark-background);
+    color: var(--text-color-white);
+
+    .appRegister {
+        color: var(--text-color-white);
+    }
+
+    .formInput {
+        input {
+            color: var(--text-color-white);
+            background-color: transparent;
+            border-color: var(--grey-light);
+        }
+
+        h2 {
+            color: var(--grey-light-80);
+        }
+    }
+
+    .checkboxContainer {
+        label {
+            color: var(--text-color-white);
+        }
+    }
 }
 
