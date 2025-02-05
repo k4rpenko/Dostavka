@@ -1,9 +1,9 @@
-import HomeLight from './home_light_theme/home_light'; // Імпорт компонента
+import HomeLight from './home_light_theme/home_light'; 
 
 export default function Home() {
   return (
     <div>
-      <HomeLight /> {/* Рендер компонента HomeLight */}
+      <HomeLight /> 
     </div>
   );
 }

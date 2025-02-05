@@ -1,13 +1,13 @@
-"use client"; // Важливо для Next.js 15
+"use client"; 
 
 import React from "react";
 import "./App.scss";
-import { FaTruck, FaPlane, FaShip, FaCalculator, FaBoxOpen, FaArrowRight, FaSun } from "react-icons/fa";
+import { FaTruck, FaPlane, FaShip, FaCalculator, FaBoxOpen, FaArrowRight, FaSun, FaSyncAlt, FaFlag, FaWeight, FaBox } from "react-icons/fa";
 
 const App: React.FC = () => {
   return (
     <div className="app">
-      {/* Header - Тепер він займає всю ширину */}
+      {/* Header */}
       <header className="header">
         <div className="header__left">
           <span>EN</span>
@@ -30,47 +30,54 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Основний контейнер (карта + інтерфейс) */}
       <div className="app__main">
         <div className="app__map">
           <img
-            src="https://storage.googleapis.com/a1aa/image/vI4-bwjdt5Y-aoYGTFzpqgVBt-H7P5_PbF76KBkoY7Y.jpg"
+            src="/map.jpg"  
             alt="Map showing locations in Central Europe"
           />
         </div>
+  
 
-        <div className="app__interface">
-          <main className="app__content">
-            <h1>Deliver Any Opportunity With One Load At a Time</h1>
 
-            <div className="app__icons">
-              <FaTruck />
-              <FaPlane />
-              <FaShip />
+        <div className="shipment-container">
+          <h1 className="title">Deliver Any Opportunity With One Load At a Time</h1>
+
+          <div className="icons-container">
+            <div className="icon"><FaTruck /></div>
+            <div className="icon"><FaPlane /></div>
+            <div className="icon"><FaShip /></div>
+          </div>
+
+          <div className="shipment-details">
+            <FaPlane />
+            <span>957 km; 500 kg; 50000грн</span>
+          </div>
+
+          <h2 className="subtitle">Calculate your shipment</h2>
+
+          <div className="form-container">
+            <div className="input-group">
+              <FaSyncAlt className="input-icon" />
+              <input type="text" placeholder="From" />
             </div>
-
-            <div className="app__info">
-              <FaPlane />
-              <span>957 km; 500 kg; 50000грн</span>
+            <div className="input-group">
+              <FaFlag className="input-icon" />
+              <input type="text" placeholder="To" />
             </div>
-
-            <div className="app__form">
-              <h2>Calculate your shipment</h2>
-              <form>
-                <div className="form-group">
-                  <input type="text" placeholder="From" />
-                  <input type="text" placeholder="To" />
-                </div>
-                <div className="form-group">
-                  <input type="text" placeholder="Type" />
-                  <input type="text" placeholder="Kg" />
-                </div>
-                <button type="submit">
-                  Calculate <FaCalculator />
-                </button>
-              </form>
+            <div className="input-group">
+              <FaBox className="input-icon" />
+              <input type="text" placeholder="Type" />
             </div>
-          </main>
+            <div className="input-group">
+              <FaWeight className="input-icon" />
+              <input type="text" placeholder="Kg" />
+            </div>
+          </div>
+
+          <button className="calculate-btn">
+            Calculate <FaCalculator />
+          </button>
         </div>
       </div>
     </div>
@@ -78,3 +85,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

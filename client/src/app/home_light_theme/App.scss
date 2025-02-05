@@ -17,90 +17,94 @@ html, body {
   width: 100vw;
   overflow: hidden;
 
-  /* ХЕДЕР */
-  .header {
-    width: 100%;
-    height: 80px;
+  /* Header */
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px; 
+  background: white;
+  box-sizing: border-box;
+  
+
+  &__left, &__center, &__right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 32px;
-    background: white;
-    border-bottom: 1px solid #e2e8f0;
-    box-sizing: border-box;
-
-    &__left, &__center, &__right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    &__left span, &__left a {
-      color: black;
-      font-size: 16px;
-      text-decoration: none;
-    }
-
-    &__icon {
-      font-size: 20px;
-      color: #f6c023;
-    }
-
-    &__center {
-      gap: 10px;
-      color: #065f46;
-      font-size: 20px;
-      font-weight: bold;
-    }
+    gap: 20px; 
   }
 
-  /* Основний контейнер */
+  &__left span, &__left a {
+    color: black;
+    font-size: 18px; 
+    text-decoration: none;
+  }
+
+  &__icon {
+    font-size: 25px; 
+    color: #f6c023;
+  }
+
+  &__center {
+    gap: 15px;
+    color: #065f46;
+    font-size: 24px; 
+    font-weight: bold;
+  }
+}
+
+  /* Main container  */
   .app__main {
     display: flex;
     flex: 1;
     width: 100%;
     overflow: hidden;
+    padding: 0;
+    margin: 0; 
   }
 
-  /* Карта */
-  .app__map {
-    flex: 1;
-    height: calc(100vh - 80px);
-    
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* Map */
+.app__map {
+  flex: 1; 
+  height: calc(100vh - 250px); 
+  width: 130%; 
+  margin-left: 50px;
+  margin-right: 20px;
+  margin-top: 50px; 
+  padding: 0; 
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 10px 8px 20px rgba(0, 0, 0, 0.10); 
+  
+  img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
   }
+}
 
-  /* Інтерфейс */
+
   .app__interface {
-    flex: 1;
+    flex: 1.5; 
     display: flex;
     flex-direction: column;
-    padding: 32px;
+    padding: 40px;
     background-color: #fff;
     color: #1a202c;
     box-sizing: border-box;
     overflow: hidden;
   }
 
-  /* Контент */
   .app__content {
     display: flex;
     flex-direction: column;
     gap: 20px;
     flex-grow: 1;
     justify-content: center;
-
-    h1 {
-      font-size: 3.5vw;
-      font-weight: 400;
-      line-height: 1.1;
-      text-transform: uppercase;
-      max-height: 50vh;
-    }
   }
 
   .app__icons {
@@ -123,51 +127,104 @@ html, body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-    h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
+  /* Shipment panel */
+  .shipment-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 32px;
+    background: white;
+    text-align: center;
+    margin-top: -50px; 
+  }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+  .title {
+    font-size: 7rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: black;
+    text-align: left; 
+  }
+  .icons-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
 
-    .form-group {
-      display: flex;
-      gap: 10px;
-      width: 100%;
+  .icon {
+    padding: 1rem; 
+    background: #f3f3f3;
+    border-radius: 50%;
+    font-size: 3rem; 
+    color: #1f7a1f;
+  }
 
-      input {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #d1d5db;
-        border-radius: 6px;
-      }
-    }
+  .shipment-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 1.5rem;
+  }
 
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #047857;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-      gap: 8px;
+  .subtitle {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 1rem;
+  }
 
-      &:hover {
-        background-color: #065f46;
-      }
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f9fafb;
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 10px;
+  }
+
+  .input-icon {
+    margin-right: 10px;
+    color: gray;
+  }
+
+  .input-group input {
+    border: none;
+    outline: none;
+    background: none;
+    flex: 1;
+  }
+
+  .calculate-btn {
+    background: #1f7a1f;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+    transition: 0.3s;
+
+    &:hover {
+      background: #065f46;
     }
   }
 
-  /* Кнопки */
+  /* Buttons */
   .btn {
     background-color: #065f46;
     color: white;
