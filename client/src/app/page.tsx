@@ -7,6 +7,9 @@
        <h1 className={styles.title}>Welcome to Dostavka</h1>
        <p className={styles.description}>Your reliable delivery service platform</p>
        <div className={styles.linkContainer}>
+         <Link href="/register/worker" className={styles.link}>
+           Register as Worker
+         </Link>
          <Link href="/register/director" className={styles.link}>
            Register as Director
          </Link>
@@ -14,3 +17,4 @@
      </div>
    );
  }
+

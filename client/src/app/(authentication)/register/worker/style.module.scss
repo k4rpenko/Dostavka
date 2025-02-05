@@ -1,0 +1,227 @@
+.appContainer {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 100vh;
+    flex-direction: row;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+
+    &.darkTheme {
+        background-color: #1a1a1a;
+        color: #ffffff;
+
+        .formInput {
+            input {
+                background-color: #2a2a2a;
+                color: #ffffff;
+                border-color: #444;
+            }
+
+            h2 {
+                color: #bbb;
+            }
+        }
+
+        .checkboxContainer {
+            label {
+                color: #bbb;
+            }
+        }
+
+        .link {
+            color: var(--grean-so-light);
+        }
+
+        .submitButton {
+            background-color: var(--grean);
+
+            &:hover {
+                background-color: var(--grean-hover);
+            }
+        }
+    }
+}
+
+.appRegister {
+    width: 55%;
+    display: flex;
+    padding: 25px;
+    color: var(--text-color-dark);
+
+    .darkTheme & {
+        color: var(--text-color-light);
+    }
+}
+
+.LogoSvg {
+    display: flex;
+    cursor: pointer;
+}
+
+.LogoItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.LogoImage {
+    display: flex;
+    width: 100px;
+}
+
+.formContainer {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.registerItem {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    color: var(--hover);
+    font-family: var(--font-sfpro-bold);
+}
+
+.headingItem {
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.description {
+    margin-bottom: 20px;
+    font-family: var(--font-sfpro-regular);
+    color: var(--grey);
+}
+
+.formBox {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.formInputBox {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.formInput {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+
+    input {
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1px solid var(--grey-light-80);
+        color: var(--text-color-dark);
+        background-color: #ffffff;
+
+        &:focus {
+            border-color: var(--grean);
+            outline: none;
+        }
+    }
+
+    h2 {
+        font-size: 15px;
+        color: var(--grey-light);
+        letter-spacing: 0.3px;
+        font-family: var(--font-sfpro-regular);
+    }
+}
+
+.checkboxContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+
+    label {
+        font-family: var(--font-sfpro-regular);
+        color: var(--grey-dark);
+    }
+
+    input {
+        width: 20px;
+        height: 20px;
+        transform: scale(0.8);
+        cursor: pointer;
+    }
+}
+
+.link {
+    color: var(--grean-so-light);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.submitButton {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    background: var(--grean);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    span {
+        letter-spacing: 1px;
+        font-family: var(--font-sfpro-light);
+    }
+
+    &:hover {
+        background: var(--grean-hover);
+    }
+}
+
+.appImage {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.appImageBox {
+    border-radius: 40px;
+    width: 100%;
+    height: 99%;
+    overflow: hidden;
+}
+
