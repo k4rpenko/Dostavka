@@ -7,7 +7,6 @@ export default function Home() {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
-        // Застосовуємо темну тему до body
         document.body.classList.toggle('dark-theme', isDarkMode);
     }, [isDarkMode]);
 
