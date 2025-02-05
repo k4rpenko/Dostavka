@@ -1,0 +1,148 @@
+
+.container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    letter-spacing: 1px;
+    font-family: var(--font-sfpro-light);
+  }
+  
+  .header {
+    width: 1470px;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--white);
+  }
+  
+  .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .lang {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-color-dark);
+    transition: color 0.3s ease;
+  }
+  
+  .logoSvg {
+    display: flex;
+    align-items: center;
+  }
+  
+  .about {
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logoImage {
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .logoImage:hover {
+    transform: scale(1.05);
+  }
+  
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+  }
+  
+  .authButton {
+    background-color: var(--hover);
+    color: var(--text-color-white);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    width: 140px;
+    height: 15px;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    gap: 40px;
+    margin-left: 20px;
+  }
+  
+  .textSection {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 20px;
+  }
+  
+  .mainHeading {
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 140px;
+  }
+  
+  .aboutCompany {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 20px;
+  }
+  
+  .icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .description {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--text-color-dark);
+  }
+  
+  .imageSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .imageWrapper {
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+  }
+  
+  .image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+  }
