@@ -6,6 +6,8 @@
     flex-direction: row;
     overflow: hidden;
     justify-content: space-between;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
 }
 
 .appRegister {
@@ -69,11 +71,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    form {
-        display: flex;
-        flex-direction: column;
-    }
 }
 
 .formInputBox {
@@ -93,9 +90,10 @@
         border-radius: 8px;
         border: 1px solid var(--grey-light-80);
         color: var(--text-color-dark);
+        background-color: #ffffff;
 
         &:focus {
-            border-color: var(--hover);
+            border-color: var(--grean);
             outline: none;
         }
     }
@@ -185,9 +183,7 @@
 }
 
 .darkTheme {
-    background-color: var(--dark-background);
-    color: var(--text-color-white);
-
+    background-color: #1a1a1a;
     .appRegister {
         color: var(--text-color-white);
     }
@@ -195,8 +191,8 @@
     .formInput {
         input {
             color: var(--text-color-white);
-            background-color: transparent;
             border-color: var(--grey-light);
+            background-color: #2a2a2a;
         }
 
         h2 {
@@ -208,6 +204,14 @@
         label {
             color: var(--text-color-white);
         }
+    }
+
+    .heading {
+        color: var(--text-color-white);
+    }
+
+    .description {
+        color: var(--grey-light);
     }
 }
 

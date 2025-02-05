@@ -7,11 +7,12 @@ export default function Home() {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
+        // Застосовуємо темну тему до body
         document.body.classList.toggle('dark-theme', isDarkMode);
     }, [isDarkMode]);
 
     const toggleTheme = () => {
-        setIsDarkMode(!isDarkMode);
+        setIsDarkMode(prevMode => !prevMode);
     };
 
     return (
@@ -80,7 +81,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
             <div className={styles.appImage}>
                 <div className={styles.appImageBox}>
                     <img src="/Images/RegiserCar.jpeg" alt="Background Image" />
