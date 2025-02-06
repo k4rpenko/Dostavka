@@ -1,69 +1,59 @@
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 10px;
-    letter-spacing: 1px;
-}
-  
-.header {
-    width: 1470px;
-    height: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: var(--white);
-}
-  
-.left {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-  
-.lang {
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--text-color-dark);
-    transition: color 0.3s ease;
-}
-  
-.logoSvg {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  letter-spacing: 1px;
+  font-family: var(--font-sfpro-regular);
+  color: var(--text-color-dark);
+  width: 1470px;
+}
+
+.header {
+  width: 100%;  
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px;
+  background: var(--white);
+  margin: 0 auto; 
+}
+
+.left, .right {
+  display: flex;
+  gap: 30px;
   align-items: center;
 }
 
-.about {
+.left {
+  flex: 1;
+  gap:50px;
+}
+
+.right {
+  flex: 1;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.lang, .about {
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
-.center {
-  flex: 2;
+
+.logoSvg, .logoImage {
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .logoImage {
   height: 20px;
   transition: transform 0.3s ease;
-}
-
-.logoImage:hover {
-  transform: scale(1.05);
-}
-
-.right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  gap: 50px;
 }
 
 .authButton {
@@ -75,38 +65,58 @@
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.3s ease;
-  width: 140px;
-  height: 15px;
+  width: 140px; 
+  height: 20px; 
   text-align: center;
+  display: flex;   
+  align-items: center;
+  justify-content: center;
+  gap: 8px; 
+  transition: background 0.3s ease;
 }
+.authButton svg {
+  width: 20px;  
+  height: 20px;
+}
+
 
 .content {
   display: flex;
-  gap: 40px;
-  margin-left: 20px;
+  gap: 50px;
+  margin-left: 50px;
+  align-items: flex-start; 
 }
 
 .textSection {
+  margin-top: 27px;
+
   flex: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-right: 20px;
+  justify-content: flex-start; 
+  width: 900px;
+}
+
+
+.mainHeadingWrapper {
+  display: block;
 }
 
 .mainHeading {
   font-size: 80px;
   font-weight: bold;
   line-height: 1.2;
-  margin-bottom: 140px;
+  margin-bottom: 100px;
   font-family: var(--font-sfpro-bold);
 }
 
-.aboutCompany {
+.aboutCompanyWrapper {
   display: flex;
   align-items: center;
   margin: 20px 0;
+}
+
+.aboutCompany {
   font-size: 20px;
 }
 
@@ -115,28 +125,35 @@
   font-size: 1.5rem;
 }
 
+.descriptionWrapper {
+  display: block;
+}
+
 .description {
   font-size: 20px;
-  line-height: 1.6;
-  color: var(--text-color-dark);
+  line-height: 1.3;
+  width: 720px;
 }
 
 .imageSection {
+  margin-right: 10px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   justify-content: center;
 }
 
 .imageWrapper {
   background: #f2f2f2;
-  padding: 10px;
+  padding: 10px ;
   border-radius: var(--border-radius);
   display: flex;
   justify-content: center;
   align-items: center;
   width: 400px;
+  height: 300px;
+  margin-left: 50px;
+  margin-top: 39px;
 }
 
 .image {
