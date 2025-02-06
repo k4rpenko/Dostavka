@@ -1,0 +1,197 @@
+.appContainer{
+  display: flex;
+  gap: 200px;
+  padding: 0px 25px;
+  flex-direction: column;
+}
+
+//home2
+.home2 {
+  display: flex;
+  padding: 0px 200px;
+}
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.mainHeading {
+  font-size: 80px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 100px;
+  font-family: var(--font-sfpro-bold);
+}
+
+.aboutCompanyWrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.aboutCompany {
+  font-size: 20px;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.descriptionWrapper {
+  display: block;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 1.3;
+  max-width: 720px;
+  width: 100%;
+}
+
+.imageSection {
+  margin-right: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.imageWrapper {
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 100%;
+  margin-left: 50px;
+  margin-top: 39px;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+
+//home 3
+.home3{
+  margin-top: 30px;
+  gap: 70px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1{
+    font-family: var(--font-sfpro-medium);
+  }
+
+  p{
+    color: var(--grey);
+    font-family: var(--font-sfpro-medium);
+  }
+}
+
+.Aboutbox{
+  display: flex;
+  padding: 0px 200px;
+  flex-direction: column;
+}
+
+.AboutItem{
+  display: flex;
+  height: 220px;
+}
+
+.AboutText{
+  display: flex;
+  gap: 50px;
+}
+
+.NumberBox {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  background-color: var(--hover);
+  border-radius: 100px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  h1 {
+    font-family: var(--font-sfpro-regular);
+    color: var(--text-color-white);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background-color: var(--text-color-dark);
+    bottom: -160px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.AboutItem:last-child{
+  .NumberBox::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+    bottom: 0;
+    left: 0;
+    display: none;
+  }
+}
+
+
+
+
+.TextBox{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
+  h1{
+
+    font-family: var(--font-sfpro-medium);
+    color: var(--text-color-dark);
+  }
+
+  p{
+    font-family: var(--font-sfpro-medium);
+    color: var(--grey-light-45);
+  }
+}
+
+.SvgBox{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  p{
+    text-align: center;
+    font-family: var(--font-sfpro-medium);
+    color: var(--grey-light-45);
+  }
+}
