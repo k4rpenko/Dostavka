@@ -34,14 +34,6 @@
         .link {
             color: var(--grean-so-light);
         }
-
-        .submitButton {
-            background-color: var(--grean);
-
-            &:hover {
-                background-color: var(--grean-hover);
-            }
-        }
     }
 }
 
@@ -184,7 +176,7 @@
     gap: 10px;
     width: 100%;
     padding: 12px;
-    background: var(--grean);
+    background: var(--hover);
     border: none;
     color: white;
     font-weight: bold;
@@ -200,7 +192,7 @@
     }
 
     &:hover {
-        background: var(--grean-hover);
+        background: var(--grean-dark);
     }
 }
 

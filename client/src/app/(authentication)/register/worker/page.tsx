@@ -80,7 +80,7 @@ export default function Home() {
             </div>
             <div className={styles.appImage}>
                 <div className={styles.appImageBox}>
-                    <img src="/Images/photo_2025-02-04_01-28-10.jpg" alt="background" />
+                    <img src="/Images/photo_2025-02-04_01-28-10.jpg" alt="image" />
                 </div>
             </div>
         </div>
