@@ -1,0 +1,91 @@
+.home2 {
+  display: flex;
+  gap: 22%;
+  padding: 0px 150px;
+  justify-content: center;
+}
+
+.textSection {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.textAbout{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.textTitle{
+  display: flex;
+
+  h1{
+    font-size: 60px;
+    font-family: var(--font-sfpro-bold);
+  }
+}
+
+.aboutCompanyWrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.aboutTitle {
+  display: flex;
+  gap: 10px;
+
+  p{
+    font-size: 20px;
+    font-family: var(--font-sfpro-regular);
+  }
+}
+
+.aboutCompany{
+  display: flex;
+
+  p{
+    font-size: 20px;
+    font-family: var(--font-sfpro-regular);
+    color: var(--grey-light-45);
+  }
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.descriptionWrapper {
+  display: block;
+}
+
+.description {
+  font-size: 20px;
+  width: 100%;
+}
+
+.imageSection {
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imageWrapper {
+  background: #f2f2f2;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.image {
+  width: 370px;
+  border-radius: 10px;
+  object-fit: contain;
+}

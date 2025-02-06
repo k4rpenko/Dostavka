@@ -1,0 +1,59 @@
+.home1 {
+  display: flex;
+  gap: 50px;
+  padding: 0px 150px;
+  justify-content: center;
+}
+
+.home1Item{
+  display: flex;
+  gap: 50px;
+}
+
+.HomeItem{
+  display: flex;
+  flex-direction: column;
+}
+
+.HomeItemBox{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  max-width: 850px;
+}
+
+.Map{
+  display: flex;
+
+  img{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+}
+
+.Title{
+  display: flex;
+
+  p{
+    font-size: 48px;
+    font-family: var(--font-sfpro-bold);
+  }
+}
+
+.HomeSVGItem{
+  display: flex;
+  gap: 25px;
+}
+
+.HomeSVG{
+  display: flex;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--grean-white);
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator{
+  display: flex;
+}

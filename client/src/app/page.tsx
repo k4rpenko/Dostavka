@@ -1,9 +1,10 @@
-import HomeLight from '@/app/home/home_light';
+import {redirect} from "next/navigation";
 
 export default function Home() {
+  redirect("/home");
+
   return (
-    <div>
-      <HomeLight /> 
-    </div>
+      <div>
+      </div>
   );
 }

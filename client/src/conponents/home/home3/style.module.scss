@@ -1,0 +1,115 @@
+.home3{
+  margin-top: 30px;
+  gap: 70px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.Title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1{
+    font-family: var(--font-sfpro-medium);
+  }
+
+  p{
+    color: var(--grey);
+    font-family: var(--font-sfpro-medium);
+  }
+}
+
+.Aboutbox{
+  display: flex;
+  padding: 0px 150px;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.AboutItem{
+  display: flex;
+}
+
+.AboutText{
+  display: flex;
+  gap: 50px;
+}
+
+.NumberBox {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  background-color: var(--hover);
+  border-radius: 100px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  h1 {
+    font-family: var(--font-sfpro-regular);
+    color: var(--text-color-white);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 180px;
+    background-color: var(--text-color-dark);
+    bottom: -190px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.AboutItem:last-child{
+  .NumberBox::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+    bottom: 0;
+    left: 0;
+    display: none;
+  }
+}
+
+
+
+
+.TextBox{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
+  h1{
+
+    font-family: var(--font-sfpro-medium);
+    color: var(--text-color-dark);
+  }
+
+  p{
+    font-family: var(--font-sfpro-medium);
+    color: var(--grey-light-45);
+  }
+}
+
+.SvgBox{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  p{
+    text-align: center;
+    font-family: var(--font-sfpro-medium);
+    color: var(--grey-light-45);
+  }
+}
