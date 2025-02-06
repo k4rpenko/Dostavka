@@ -54,6 +54,7 @@
     padding: 0;
 }
 
-body {
+body, header {
     background: var(--white-background);
+    letter-spacing: 1px;
 }
