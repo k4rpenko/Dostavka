@@ -3,6 +3,7 @@ import styles from './style.module.scss';
 export default function Home4() {
   return (
     <div className={styles.home4}>
+
       <h2 className={styles.title}>
         Discover The Full Range Of Services We Offer For Shipping
       </h2>
