@@ -1,9 +1,66 @@
-.home4{
-  margin-top: 30px;
+.home4 {
+  font-family: var(--font-sfpro-bold);
   gap: 70px;
   display: flex;
-  width: 100%;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 30px;
+  align-items: center;
+  padding: 0px 200px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  padding: 0 230px;
+  
+
+}
+
+.serviceCard,
+.serviceCardFull {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.serviceCardFull {
+  grid-column: span 2;
+}
+
+.serviceImage {
+  width: 100%;
+  height: auto;
+  max-height: 250px; 
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.2rem;
+  color: var(--white);
+  text-align: left;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  min-height: 30%;
+}
+
+.text {
+  font-size: 1.5rem; 
+  font-weight: bold;
+  max-width: 70%; 
+  line-height: 1.3; 
+  padding: 0.5rem;
 }
