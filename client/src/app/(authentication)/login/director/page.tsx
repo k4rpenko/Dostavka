@@ -64,7 +64,7 @@ export default function Login() {
 
             <div className={styles.appImage}>
                 <div className={styles.appImageBox}>
-                    <img src="/images/RegiserCar.jpeg" alt="background" />
+                    <img src="/Images/RegiserCar.jpeg" alt="background" />
                 </div>
             </div>
         </div>
