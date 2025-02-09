@@ -17,7 +17,7 @@ A platform that unites carriers and product owners, helping to find a reliable p
 ### Backend: ASP.NET
 1. Add the configuration files appsettings.json and appsettings.Development.json to the root directory of the backend project.
 2. Example of the structure of appsettings.json:
-3. Authentication
+3. NAME
    ```json
    {
      "Logging": {
@@ -25,23 +25,6 @@ A platform that unites carriers and product owners, helping to find a reliable p
          "Default": "Information",
          "Microsoft.AspNetCore": "Warning"
        }
-     },
-     "Npgsql": {
-       "ConnectionString": ""
-     },
-     "Redis": {
-       "ConnectionString": ""
-     },
-     "Mailhog": {
-       "Host": "",
-       "Port": ,
-       "SenderName": "",
-       "SenderEmail": "",
-       "SenderPassword": ""
-     },
-     "GoogleAuth": {
-       "ClientID": "",
-       "ClientSecret": ""
      }
    }
    
