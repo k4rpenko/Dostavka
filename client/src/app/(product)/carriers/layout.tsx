@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import "../globals.css";
-import '../fonts.css';
+import "../../globals.css";
+import '../../fonts.css';
 import styles from './style.module.scss';
-import {usePathname} from "next/navigation";
 import Header from "@/conponents/carriers/Header/header";
 
 export const metadata: Metadata = {
