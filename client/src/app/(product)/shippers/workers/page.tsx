@@ -16,6 +16,7 @@ export default function Workers() {
                   </svg>
                   <input type="text" placeholder="find workers" className={styles.input} />
                 </div>
+                <div className={styles.buttonGroup}>
                 <div className={styles.dropdown}>
                   <details className={styles.details}>
                     <summary className={styles.button}>
@@ -38,6 +39,7 @@ export default function Workers() {
                   Get key
                 </button>
               </div>
+            </div>
             </div>
             <div className={styles.tableContainer}>
               <table className={styles.table}>

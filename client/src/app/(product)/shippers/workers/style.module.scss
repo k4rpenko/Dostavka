@@ -44,8 +44,15 @@
 }
 
 .buttonsPanel {
+  display: flex;
   justify-content: flex-end;
-  gap: 80px;
+  align-items: center;
+  gap: 80px; 
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 25px; 
 }
 
 .inputContainer {
