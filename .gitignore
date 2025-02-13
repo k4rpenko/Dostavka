@@ -1,1 +1,8 @@
 /client/.idea
+/servers/aspnet/messager/.vs
+/servers/aspnet/messager/messager/bin
+/servers/aspnet/messager/messager/obj
+/servers/aspnet/messager/PgAdmin/bin
+/servers/aspnet/messager/PgAdmin/obj
+servers/aspnet/messager/messager/appsettings.Development.json
+servers/aspnet/messager/messager/appsettings.json
