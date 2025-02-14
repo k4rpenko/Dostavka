@@ -24,7 +24,17 @@ namespace PGAdminDAL.Model
         public int SuccessfulTransportation { get; set; }
         public string TransportationOnline { get; set; }
         public double Rating { get; set; }
-        public List<string> ReviewsId = new List<string>();
-        public int ReviewsNumbers { get; set; }
+        private List<string> reviewsId = new List<string>();
+        public List<string> ReviewsId
+        {
+            get => reviewsId;
+            set
+            {
+                reviewsId = value;
+                ReviewsNumbers = value.Count;
+            }
+        }
+
+        public int ReviewsNumbers { get; private set; }
     }
 }

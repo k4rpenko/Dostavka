@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -34,6 +35,7 @@ namespace PgAdmin.Migrations
                     SuccessfulTransportation = table.Column<int>(type: "integer", nullable: false),
                     TransportationOnline = table.Column<string>(type: "text", nullable: false),
                     Rating = table.Column<double>(type: "double precision", nullable: false),
+                    ReviewsId = table.Column<List<string>>(type: "text[]", nullable: false),
                     ReviewsNumbers = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -68,6 +70,7 @@ namespace PgAdmin.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
+                    IdCompany = table.Column<List<string>>(type: "text[]", nullable: false),
                     FullName = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
                     EmailConfirmation = table.Column<bool>(type: "boolean", nullable: false),
@@ -77,14 +80,18 @@ namespace PgAdmin.Migrations
                     Location = table.Column<string>(type: "text", nullable: false),
                     Avatar = table.Column<string>(type: "text", nullable: false),
                     Role = table.Column<string>(type: "text", nullable: false),
+                    TransportationId = table.Column<List<string>>(type: "text[]", nullable: false),
                     SuccessfulTransportation = table.Column<int>(type: "integer", nullable: false),
+                    ChatsId = table.Column<List<string>>(type: "text[]", nullable: false),
                     ChatsNumber = table.Column<int>(type: "integer", nullable: false),
+                    TruckId = table.Column<List<string>>(type: "text[]", nullable: false),
                     TruckNumber = table.Column<int>(type: "integer", nullable: false),
                     PublicKey = table.Column<string>(type: "text", nullable: false),
                     PrivateKey = table.Column<string>(type: "text", nullable: false),
                     CompanyKey = table.Column<string>(type: "text", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: false),
                     Rating = table.Column<double>(type: "double precision", nullable: false),
+                    ReviewsId = table.Column<List<string>>(type: "text[]", nullable: false),
                     ReviewsNumbers = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -190,6 +197,7 @@ namespace PgAdmin.Migrations
                     SuccessfulTransportation = table.Column<int>(type: "integer", nullable: false),
                     TransportationOnline = table.Column<string>(type: "text", nullable: false),
                     Rating = table.Column<double>(type: "double precision", nullable: false),
+                    ReviewsId = table.Column<List<string>>(type: "text[]", nullable: false),
                     ReviewsNumbers = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -234,12 +242,16 @@ namespace PgAdmin.Migrations
                     Location = table.Column<string>(type: "text", nullable: false),
                     Avatar = table.Column<string>(type: "text", nullable: false),
                     SuccessfulTransportation = table.Column<int>(type: "integer", nullable: false),
+                    TransportationId = table.Column<List<string>>(type: "text[]", nullable: false),
+                    ransportationNumber = table.Column<int>(type: "integer", nullable: false),
+                    ChatsId = table.Column<List<string>>(type: "text[]", nullable: false),
                     ChatsNumber = table.Column<int>(type: "integer", nullable: false),
                     PublicKey = table.Column<string>(type: "text", nullable: false),
                     PrivateKey = table.Column<string>(type: "text", nullable: false),
                     CompanyKey = table.Column<string>(type: "text", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: false),
                     Rating = table.Column<double>(type: "double precision", nullable: false),
+                    ReviewsId = table.Column<List<string>>(type: "text[]", nullable: false),
                     ReviewsNumbers = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

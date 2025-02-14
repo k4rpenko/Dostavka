@@ -1,12 +1,12 @@
-﻿
-using PgAdmin.Hash;
+﻿using PgAdmin.Hash;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PGAdminDAL.Model
 {
     public class CarriersWorkers
     {
-
         public CarriersWorkers()
         {
             ConcurrencyStamp = new sha256().GenerateKey().ToString();
@@ -15,7 +15,17 @@ namespace PGAdminDAL.Model
         [Key]
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
-        public List<string> IdCompany = new List<string>();
+        private List<string> idCompany = new List<string>();
+        public List<string> IdCompany
+        {
+            get => idCompany;
+            set
+            {
+                idCompany = value;
+                // Update related properties if needed
+            }
+        }
+
         public string FullName { get; set; }
         public string Email { get; set; }
         public bool EmailConfirmation { get; set; }
@@ -25,18 +35,63 @@ namespace PGAdminDAL.Model
         public string Location { get; set; }
         public string Avatar { get; set; }
         public string Role { get; set; }
-        public int SuccessfulTransportation { get; set; }
-        public List<string> TransportationId = new List<string>();
-        public int ChatsNumber { get; set; }
-        public List<string> ChatsId = new List<string>();
-        public int TruckNumber { get; set; }
-        public List<string> TruckId = new List<string>();
+
+        private List<string> transportationId = new List<string>();
+        public List<string> TransportationId
+        {
+            get => transportationId;
+            set
+            {
+                transportationId = value;
+                SuccessfulTransportation = value.Count;
+            }
+        }
+
+        public int SuccessfulTransportation { get; private set; }
+
+        private List<string> chatsId = new List<string>();
+        public List<string> ChatsId
+        {
+            get => chatsId;
+            set
+            {
+                chatsId = value;
+                ChatsNumber = value.Count;
+            }
+        }
+
+        public int ChatsNumber { get; private set; }
+
+        private List<string> truckId = new List<string>();
+        public List<string> TruckId
+        {
+            get => truckId;
+            set
+            {
+                truckId = value;
+                TruckNumber = value.Count;
+            }
+        }
+
+        public int TruckNumber { get; private set; }
+
         public string PublicKey { get; set; }
         public string PrivateKey { get; set; }
         public string CompanyKey { get; set; }
         public string ConcurrencyStamp { get; set; }
         public double Rating { get; set; }
-        public int ReviewsNumbers { get; set; }
-        public List<string> ReviewsId = new List<string>();
+
+        private List<string> reviewsId = new List<string>();
+        public List<string> ReviewsId
+        {
+            get => reviewsId;
+            set
+            {
+                reviewsId = value;
+                ReviewsNumbers = value.Count;
+            }
+        }
+
+        public int ReviewsNumbers { get; private set; }
     }
 }

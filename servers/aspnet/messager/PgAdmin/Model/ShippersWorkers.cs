@@ -25,15 +25,46 @@ namespace PGAdminDAL.Model
         public string Location { get; set; }
         public string Avatar { get; set; }
         public int SuccessfulTransportation { get; set; }
-        public List<string> TransportationId = new List<string>();
-        public int ChatsNumber { get; set; }
-        public List<string> ChatsId = new List<string>();
+        private List<string> transportationId = new List<string>();
+        public List<string> TransportationId
+        {
+            get => transportationId;
+            set
+            {
+                transportationId = value;
+                ransportationNumber = value.Count;
+            }
+        }
+
+        public int ransportationNumber { get; private set; }
+        private List<string> chatsId = new List<string>();
+        public List<string> ChatsId
+        {
+            get => chatsId;
+            set
+            {
+                chatsId = value;
+                ChatsNumber = value.Count;
+            }
+        }
+
+        public int ChatsNumber { get; private set; }
         public string PublicKey { get; set; }
         public string PrivateKey { get; set; }
         public string CompanyKey { get; set; }
         public string ConcurrencyStamp { get; set; }
         public double Rating { get; set; }
-        public int ReviewsNumbers { get; set; }
-        public List<string> ReviewsId = new List<string>();
+        private List<string> reviewsId = new List<string>();
+        public List<string> ReviewsId
+        {
+            get => reviewsId;
+            set
+            {
+                reviewsId = value;
+                ReviewsNumbers = value.Count;
+            }
+        }
+
+        public int ReviewsNumbers { get; private set; }
     }
 }
