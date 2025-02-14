@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using PGAdminDAL.Model;
 
-public class AppDbContext : IdentityDbContext
+public class AppDbContext : DbContext
 {
     private readonly IConfiguration _configuration;
 
@@ -24,7 +24,7 @@ public class AppDbContext : IdentityDbContext
     public DbSet<ShippersDirector> ShippersDirectors { get; set; }
     public DbSet<ShippersWorkers> ShippersWorkers { get; set; }
     public DbSet<Transportation> Transportations { get; set; }
-    public DbSet<Roles> WorkerRoles { get; set; }
+    public DbSet<Roles> Roles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -50,12 +50,13 @@ public class AppDbContext : IdentityDbContext
             new CarRoles { Id = 9, Role = "Large Box Truck Container" }
         );
 
+
         modelBuilder.Entity<Roles>().HasData(
-            new Roles { Role = "junior logistician" },
-            new Roles { Role = "logistician" },
-            new Roles { Role = "senior logistician" },
-            new Roles { Role = "director" },
-            new Roles { Role = "Admin" }
+            new Roles { Id = 1, Role = "junior logistician" },
+            new Roles { Id = 2, Role = "logistician" },
+            new Roles { Id = 3, Role = "senior logistician" },
+            new Roles { Id = 4, Role = "director" },
+            new Roles { Id = 5, Role = "Admin" }
         );
     }
 }

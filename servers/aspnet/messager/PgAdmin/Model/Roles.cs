@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using PgAdmin.Hash;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,8 +12,9 @@ namespace PGAdminDAL.Model
 {
     public class Roles
     {
+
         [Key]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public int Id { get; set; }
         public string Role { get; set; }
     }
 }
