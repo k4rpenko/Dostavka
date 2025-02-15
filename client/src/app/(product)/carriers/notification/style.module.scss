@@ -90,6 +90,29 @@
     margin-right: 15px;
 }
 
+.icon {
+  width: 50px;
+  height: 50px;
+  background: #EBEBEB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.title.badly {
+  path{
+    fill: var(--yellow);
+  }
+}
+
+.title.problem {
+  path{
+    fill: var(--read);
+  }
+}
+
 .content {
     flex: 1;
 }
