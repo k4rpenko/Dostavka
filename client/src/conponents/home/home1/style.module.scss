@@ -57,3 +57,87 @@
 .calculator{
   display: flex;
 }
+
+.calculator {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+
+  .resultBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0B4833;
+    margin-bottom: 24px;
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 24px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .inputGroup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+
+      .inputBox {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+          font-size: 14px;
+          font-weight: 500;
+          color: #374151;
+        }
+
+        input {
+          width: 100%;
+          padding: 8px 16px;
+          border: 1px solid #E5E7EB;
+          border-radius: 8px;
+          transition: all 0.2s;
+
+          &:focus {
+            outline: 2px solid #0B4833;
+            outline-offset: 2px;
+          }
+          
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      background: #0B4833;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background: #0a3f2d;
+      }
+    }
+  }
+}
