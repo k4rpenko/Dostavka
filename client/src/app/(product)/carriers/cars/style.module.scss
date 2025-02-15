@@ -1,0 +1,276 @@
+.appContainer {
+  display: flex;
+  width: 100%;
+  color: var(--text-color-white);
+  font-family: var(--font-sfpro-regular);
+}
+
+.main{
+  display: flex;
+  gap: 25px;
+  padding: 0px 25px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.Title{
+  width: 100%;
+
+  h1{
+    font-size: 35px;
+    color: var(--grey);
+  }
+}
+
+.Filter{
+  display: flex;
+  width: 100%;
+  color: var(--text-color-dark);
+  flex-direction: column;
+  gap: 15px;
+}
+
+.FilterButtons{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.FilterButtonTrack{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.FilterButton{
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex: 1 1 auto;
+  padding: 1%;
+  border-radius: 10px;
+  background-color: var(--grey-light-93);
+  justify-content: center;
+  transition: 0.3s;
+
+  &:hover{
+    background-color: var(--white-dark);
+  }
+}
+
+.FilterButtonAll{
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--grey-light-93);
+  justify-content: center;
+  transition: 0.3s;
+
+  &:hover{
+    background-color: var(--white-dark);
+  }
+}
+
+.FilterInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background-color: var(--grey-light-93);
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+
+  &:focus-within {
+    border-color: var(--blue);
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 0 8px;
+    outline: none;
+    font-size: 16px;
+    color: var(--text-color);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  path {
+    fill: var(--grey);
+  }
+}
+
+
+.Trucks{
+  display: flex;
+  gap: 25px;
+  width: 100%;
+  height: 100%;
+}
+
+.Truck{
+  background-color: var(--grey-light-93);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 25px;
+  max-width: 300px;
+  max-height: 300px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.TruckHeader{
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  min-height: 175px;
+  flex-direction: column;
+}
+
+.TruckTitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2{
+    color: var(--grey);
+  }
+}
+
+.TruckTitleWork{
+  font-family: var(--font-sfpro-bold);
+  font-size: 15px;
+  color: var(--oreng);
+}
+
+.TruckTitleRoute{
+  font-family: var(--font-sfpro-bold);
+  font-size: 15px;
+  color: var(--grean);
+}
+
+.TruckDoneStatus{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-height: 130px;
+  max-width: 300px;
+  justify-content: center;
+  border: 1px solid var(--grey);
+  border-radius: 10px;
+}
+
+.TruckDoneStatusHeader{
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  gap: 10px;
+}
+
+.TruckDoneStatusTimeStart{
+  display: flex;
+  color: var(--grey);
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.TruckDoneStatusBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.timelineItem {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.timelinecontent{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+
+  h1{
+    font-size: 11px;
+    color: var(--grey);
+    font-family: var(--font-sfpro-bold);
+  }
+}
+
+.timelineDone{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.LineBlue {
+  width: 6px;
+  height: 15px;
+  background-color: var(--blue);
+  margin: 0 auto;
+}
+
+.LineGrey {
+  width: 6px;
+  height: 15px;
+  background-color: lightgrey;
+  margin: 0 auto;
+}
+
+.CircleBlue {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  margin: 0 auto;
+}
+
+.CircleGrey {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: lightgrey;
+  margin: 0 auto;
+}
+
+.TruckMain{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.TruckMainCar {
+  position: relative;
+
+  img {
+    margin-left: 60%;
+    width: 250px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .TruckMainCarShadow {
+    position: absolute;
+    bottom: 5px;
+    left: 60%;
+    width: 200px;
+    height: 20px;
+    background: rgb(0 0 0);
+    border-radius: 50%;
+    filter: blur(10px);
+    z-index: 1;
+  }
+}
