@@ -2,22 +2,25 @@ import React from "react";
 import styles from "./style.module.scss";
 
 export default function Notification() {
+    const NotificationJSON = [
+        { id: 1, Title: "Shipment Successfully Delivered", Text: "The shipment with tracking number 02930293 has been successfully delivered to Oleksandr Petrenko in Kyiv. The transportation cost was $200.", status: 0, data: ""},
+        { id: 2, Title: "You Received a Review", Text: "Your company DOSTAVKA has received a review from Maria Ivanchenko. Please read it and leave a reciprocal review to improve your reputation.", status: 0, data: ""},
+        { id: 3, Title: "Shipment Damaged", Text: "The vehicle with license plate number AB1234CD in New York was involved in an accident. The shipment with tracking number 93827164 has been damaged.", status: 2, data: ""},
+        { id: 3, Title: "Delivery Delay", Text: "The shipment with tracking number 56473820 has not arrived by the specified date. Your client is still waiting for it. Please clarify the delivery status.", status: 1, data: ""},
+    ];
+
     return (
         <div className={styles.container}>
             <div className={styles.header}>
               <h2>Notification</h2>
-                <div className={styles.actions}>
-                  <svg width="28" height="28" viewBox="0 0 41 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3.4165 22.1667L8.9397 26.0059C9.67204 26.515 10.7072 26.3986 11.2869 25.742L25.6248 9.5" stroke="#125840" stroke-width="3.584" stroke-linecap="round"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8687 24.9856L19.8217 27.1751C21.2837 28.2592 23.4148 28.0507 24.6004 26.7077L38.9055 10.503C39.5029 9.8262 39.3952 8.82867 38.6649 8.27493C37.9348 7.72121 36.8585 7.82096 36.261 8.49774L21.9561 24.7024L19.0324 22.5346L16.8687 24.9856Z" fill="#125840"/>
-                  </svg>
-                  <button>Mark all as seen</button>
-                </div>
             </div>
             <div className={styles.date}>
               <p>Today</p>
             </div>
             <div className={styles.footer}>
+                {NotificationJSON.map((item, index) => (
+
+                ))}
                 <div className={styles.panel}>
                     <div className={styles.icon}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
