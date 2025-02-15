@@ -97,6 +97,19 @@
 }
 
 
+.Role{
+  display: flex;
+  border-radius: 10px;
+  width: 70%;
+  min-height: 25px;
+  background-color: rgba(48, 209, 88, 0.2);
+  border: 1px solid var(--grean);
+  align-items: center;
+  justify-content: center;
+  color: var(--hover);
+  font-family: var(--font-sfpro-medium);
+}
+
 .dropdown, .details {
   position: relative;
 }
