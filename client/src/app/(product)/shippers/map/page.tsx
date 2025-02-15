@@ -1,5 +1,5 @@
 import styles from "./style.module.scss";
-import MapModule from "@/conponents/carriers/Map/Map";
+import MapModule from "@/conponents/shippers/Map/Map";
 
 
 export default function Map() {
