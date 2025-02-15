@@ -25,6 +25,9 @@ A platform that unites carriers and product owners, helping to find a reliable p
          "Default": "Information",
          "Microsoft.AspNetCore": "Warning"
        }
+     },
+     "Npgsql": {
+       "ConnectionString": ""
      }
    }
    
