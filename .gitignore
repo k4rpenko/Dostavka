@@ -6,3 +6,13 @@
 /servers/aspnet/messager/PgAdmin/obj
 servers/aspnet/messager/messager/appsettings.Development.json
 servers/aspnet/messager/messager/appsettings.json
+/servers/authentication/.vs
+/servers/authentication/authentication/bin
+/servers/authentication/authentication/obj
+/servers/authentication/Hash/obj
+/servers/authentication/PgAdmin/bin
+/servers/authentication/Hash/bin
+/servers/authentication/PgAdmin/obj
+/servers/messager/.vs
+/servers/messager/messager/obj
+/servers/messager/PgAdmin/obj
