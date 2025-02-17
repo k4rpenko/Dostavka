@@ -55,8 +55,8 @@ export default function Home5() {
                     <Image
                         src="/logo/Logo-Dark.png"
                         alt="Dostavka Logo"
-                        width={250}
-                        height={200}
+                        width={1000}
+                        height={500}
                         className={styles.logoOverlay}
                     />
                 </div>
