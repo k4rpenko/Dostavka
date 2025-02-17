@@ -43,14 +43,23 @@ export default function Home5() {
                     ))}
                 </div>
 
-                <Image 
-                    src="/logo/company/furry dostavka.png" 
-                    alt="Dostawka link"  
-                    width={1000}
-                    height={500}
-                    layout="responsive"
-                    className={styles.supplyLinkImage}
-                />
+                <div className={styles.truckContainer}>
+                    <Image 
+                        src="/cars/Container Truck.svg" 
+                        alt="Dostavka link"  
+                        width={1000}
+                        height={500}
+                        layout="responsive"
+                        className={styles.supplyLinkImage}
+                    />
+                    <Image
+                        src="/logo/Logo-Dark.png"
+                        alt="Dostavka Logo"
+                        width={250}
+                        height={200}
+                        className={styles.logoOverlay}
+                    />
+                </div>
             </div>
         </div>
     );

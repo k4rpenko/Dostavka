@@ -46,11 +46,23 @@
     overflow: hidden;
 }
 
-.supplyLinkImage {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+.truckContainer {
+    position: relative;
+    width: 100%;
 }
+.supplyLinkImage {
+    width: 100%;
+    height: auto;
+}
+
+.logoOverlay {
+    position: absolute;
+    top: 15%; // Adjust this value to move the logo up or down
+    left: 30%; // Adjust this value to move the logo left or right
+    width: 60%; // Adjust the size of the logo as needed
+    height: auto;
+}
+
 
 .grayFilter {
   filter: grayscale(100%) brightness(50%) contrast(0%);
