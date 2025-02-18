@@ -18,7 +18,10 @@ const Index = () => {
     cost: '50000грн'
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const COST_PER_KG = 207; 
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -27,9 +30,27 @@ const Index = () => {
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add calculation logic here
-  };
 
+    const weight = parseFloat(formData.kg);
+    const distance = parseFloat(calculationResult.distance.replace(' km', ''));
+
+    if (isNaN(weight) || weight <= 0) {
+      setCalculationResult({
+        ...calculationResult,
+        cost: 'Введіть дійсну вагу'
+      });
+      return;
+    }
+
+    const calculatedCost = weight * COST_PER_KG; 
+
+    setCalculationResult({
+      distance: `${distance} км`,
+      weight: `${weight} кг`,
+      cost: `${calculatedCost.toFixed(2)} грн`
+    });
+  };
+  
   return (
     <div className={styles.home1}>
       <div className={styles.home1Item}>
@@ -42,7 +63,7 @@ const Index = () => {
             <div className={styles.Title}>
               <p>Deliver Any Opportunity With One Load At a Time</p>
             </div>
-            
+
             <div className={styles.HomeSVGItem}>
               <div className={styles.HomeSVG}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +83,7 @@ const Index = () => {
               </div>
               <div className={styles.HomeSVG}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20.0486 10.6286L15.3786 8.61859L14.3386 8.17859C14.1786 8.09859 14.0386 7.88859 14.0386 7.70859V4.64859C14.0386 3.68859 13.3286 2.54859 12.4686 2.10859C12.1686 1.95859 11.8086 1.95859 11.5086 2.10859C10.6586 2.54859 9.94859 3.69859 9.94859 4.65859V7.71859C9.94859 7.89859 9.80859 8.10859 9.64859 8.18859L3.94859 10.6386C3.31859 10.8986 2.80859 11.6886 2.80859 12.3686V13.6886C2.80859 14.5386 3.44859 14.9586 4.23859 14.6186L9.24859 12.4586C9.63859 12.2886 9.95859 12.4986 9.95859 12.9286V14.0386V15.8386C9.95859 16.0686 9.82859 16.3986 9.66859 16.5586L7.34859 18.8886C7.10859 19.1286 6.99859 19.5986 7.10859 19.9386L7.55859 21.2986C7.73859 21.8886 8.40859 22.1686 8.95859 21.8886L11.3386 19.8886C11.6986 19.5786 12.2886 19.5786 12.6486 19.8886L15.0286 21.8886C15.5786 22.1586 16.2486 21.8886 16.4486 21.2986L16.8986 19.9386C17.0086 19.6086 16.8986 19.1286 16.6586 18.8886L14.3386 16.5586C14.1686 16.3986 14.0386 16.0686 14.0386 15.8386V12.9286C14.0386 12.4986 14.3486 12.2986 14.7486 12.4586L19.7586 14.6186C20.5486 14.9586 21.1886 14.5386 21.1886 13.6886V12.3686C21.1886 11.6886 20.6786 10.8986 20.0486 10.6286Z" fill="#0B4833"/>
+                  <path d="M20.0486 10.6286L15.3786 8.61859L14.3386 8.17859C14.1786 8.09859 14.0386 7.88859 14.0386 7.70859V4.64859C14.0386 3.68859 13.3286 2.54859 12.4686 2.10859C12.1686 1.95859 11.8086 1.95859 11.5086 2.10859C10.6586 2.54859 9.94859 3.69859 9.94859 4.65859V7.71859C9.94859 7.89859 9.80859 8.10859 9.64859 8.18859L3.94859 10.6386C3.31859 10.8986 2.80859 11.6886 2.80859 12.3686V13.6886C2.80859 14.5386 3.44859 14.9586 4.23859 14.6186L9.24859 12.4586C9.63859 12.2886 9.95859 12.4986 9.95859 12.9286V14.0386V15.8386C9.95859 16.0686 9.82859 16.3986 9.66859 16.5586L7.34859 18.8886C7.10859 19.1286 6.99859 19.5986 7.10859 19.9386L7.55859 21.2986C7.73859 21.8886 8.40859 22.1686 8.95859 21.8886L11.33859 19.8886C11.69859 19.5786 12.28859 19.5786 12.64859 19.8886L15.02859 21.8886C15.57859 22.1586 16.24859 21.8886 16.44859 21.2986L16.89859 19.9386C17.00859 19.6086 16.89859 19.1286 16.65859 18.8886L14.33859 16.5586C14.16859 16.3986 14.03859 16.0686 14.03859 15.8386V12.9286C14.03859 12.4986 14.34859 12.2986 14.74859 12.4586L19.75859 14.6186C20.54859 14.9586 21.18859 14.5386 21.18859 13.6886V12.3686C21.18859 11.6886 20.67859 10.8986 20.04859 10.6286Z" fill="#0B4833"/>
                 </svg>
               </div>
             </div>
@@ -71,7 +92,7 @@ const Index = () => {
           <div className={styles.calculator}>
             <div className={styles.resultBox}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.0486 10.6286L15.3786 8.61859L14.3386 8.17859C14.1786 8.09859 14.0386 7.88859 14.0386 7.70859V4.64859C14.0386 3.68859 13.3286 2.54859 12.4686 2.10859C12.1686 1.95859 11.8086 1.95859 11.5086 2.10859C10.6586 2.54859 9.94859 3.69859 9.94859 4.65859V7.71859C9.94859 7.89859 9.80859 8.10859 9.64859 8.18859L3.94859 10.6386C3.31859 10.8986 2.80859 11.6886 2.80859 12.3686V13.6886C2.80859 14.5386 3.44859 14.9586 4.23859 14.6186L9.24859 12.4586C9.63859 12.2886 9.95859 12.4986 9.95859 12.9286V14.0386V15.8386C9.95859 16.0686 9.82859 16.3986 9.66859 16.5586L7.34859 18.8886C7.10859 19.1286 6.99859 19.5986 7.10859 19.9386L7.55859 21.2986C7.73859 21.8886 8.40859 22.1686 8.95859 21.8886L11.3386 19.8886C11.6986 19.5786 12.2886 19.5786 12.6486 19.8886L15.0286 21.8886C15.5786 22.1586 16.2486 21.8886 16.4486 21.2986L16.8986 19.9386C17.0086 19.6086 16.8986 19.1286 16.6586 18.8886L14.3386 16.5586C14.1686 16.3986 14.0386 16.0686 14.0386 15.8386V12.9286C14.0386 12.4986 14.3486 12.2986 14.7486 12.4586L19.7586 14.6186C20.5486 14.9586 21.1886 14.5386 21.1886 13.6886V12.3686C21.1886 11.6886 20.6786 10.8986 20.0486 10.6286Z" fill="#0B4833"/>
+                <path d="M20.0486 10.6286L15.3786 8.61859L14.3386 8.17859C14.1786 8.09859 14.0386 7.88859 14.0386 7.70859V4.64859C14.0386 3.68859 13.3286 2.54859 12.4686 2.10859C12.1686 1.95859 11.8086 1.95859 11.5086 2.10859C10.6586 2.54859 9.94859 3.69859 9.94859 4.65859V7.71859C9.94859 7.89859 9.80859 8.10859 9.64859 8.18859L3.94859 10.6386C3.31859 10.8986 2.80859 11.6886 2.80859 12.3686V13.6886C2.80859 14.5386 3.44859 14.9586 4.23859 14.6186L9.24859 12.4586C9.63859 12.2886 9.95859 12.4986 9.95859 12.9286V14.0386V15.8386C9.95859 16.0686 9.82859 16.3986 9.66859 16.5586L7.34859 18.8886C7.10859 19.1286 6.99859 19.5986 7.10859 19.9386L7.55859 21.2986C7.73859 21.8886 8.40859 22.1686 8.95859 21.8886L11.33859 19.8886C11.69859 19.5786 12.28859 19.5786 12.64859 19.8886L15.02859 21.8886C15.57859 22.1586 16.24859 21.8886 16.44859 21.2986L16.89859 19.9386C17.00859 19.6086 16.89859 19.1286 16.65859 18.8886L14.33859 16.5586C14.16859 16.3986 14.03859 16.0686 14.03859 15.8386V12.9286C14.03859 12.4986 14.34859 12.2986 14.74859 12.4586L19.75859 14.6186C20.54859 14.9586 21.18859 14.5386 21.18859 13.6886V12.3686C21.18859 11.6886 20.67859 10.8986 20.04859 10.6286Z" fill="#0B4833"/>
               </svg>
               <span>
                 {calculationResult.distance}; {calculationResult.weight}; {calculationResult.cost}
@@ -81,61 +102,69 @@ const Index = () => {
             <h2>Calculate your shipment</h2>
 
             <form onSubmit={handleCalculate}>
-              <div className={styles.inputGroup}>
-                <div className={styles.inputBox}>
-                  <label htmlFor="from">From</label>
-                  <input
-                    type="text"
-                    id="from"
-                    name="from"
-                    value={formData.from}
-                    onChange={handleInputChange}
-                    placeholder="Origin"
-                  />
-                </div>
-                <div className={styles.inputBox}>
-                  <label htmlFor="to">To</label>
-                  <input
-                    type="text"
-                    id="to"
-                    name="to"
-                    value={formData.to}
-                    onChange={handleInputChange}
-                    placeholder="Destination"
-                  />
-                </div>
+            <div className={styles.inputGroup}>
+              <div className={styles.inputBox}>
+                <img src="/svg/box-2.svg" alt="Box icon" className={styles.icon} />
+                <input
+                  type="text"
+                  id="from"
+                  name="from"
+                  value={formData.from}
+                  onChange={handleInputChange}
+                  placeholder="From"
+                />
               </div>
-
-              <div className={styles.inputGroup}>
-                <div className={styles.inputBox}>
-                  <label htmlFor="type">Type</label>
-                  <input
-                    type="text"
-                    id="type"
-                    name="type"
-                    value={formData.type}
-                    onChange={handleInputChange}
-                    placeholder="Cargo type"
-                  />
-                </div>
-                <div className={styles.inputBox}>
-                  <label htmlFor="kg">Weight (kg)</label>
-                  <input
-                    type="text"
-                    id="kg"
-                    name="kg"
-                    value={formData.kg}
-                    onChange={handleInputChange}
-                    placeholder="Weight"
-                  />
-                </div>
+              <div className={styles.inputBox}>
+                <img src="/svg/flag.svg" alt="Flag icon" className={styles.icon} />
+                <input
+                  type="text"
+                  id="to"
+                  name="to"
+                  value={formData.to}
+                  onChange={handleInputChange}
+                  placeholder="To"
+                />
               </div>
+            </div>
 
-              <button type="submit">
-                <Calculator className="w-5 h-5" />
-                Calculate
-              </button>
-            </form>
+            <div className={styles.inputGroup}>
+              <div className={styles.inputBox}>
+                <img src="/svg/box.svg" alt="Type icon" className={styles.icon} />
+                <select
+                  id="type"
+                  name="type"
+                  value={formData.type}
+                  onChange={handleInputChange}
+                  className={styles.select}
+                >
+                  <option value="">Type</option>
+                  <option value="products">Products</option>
+                  <option value="chemicals">Chemicals (flammable)</option>
+                  <option value="electronics">Electronics</option>
+                  <option value="industrial">Industrial (grain, etc.)</option>
+                  <option value="construction">Construction materials</option>
+                </select>
+              </div>
+              <div className={styles.inputBox}>
+              <img src="/svg/weight.svg" alt="weight image" className={styles.icon} />
+                <input
+                  type="text"
+                  id="kg"
+                  name="kg"
+                  value={formData.kg}
+                  onChange={handleInputChange}
+                  placeholder="Kg"
+                  className={styles.input}
+                />
+              </div>
+            </div>
+
+            <button type="submit">
+              <Calculator className="w-5 h-5" />
+              Calculate
+            </button>
+          </form>
+
           </div>
         </div>
       </div>

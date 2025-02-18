@@ -125,6 +125,7 @@
   outline-offset: 0px;
 }
 
+
 .calculator button {
   width: 100%;
   background: #0B4833;
@@ -144,3 +145,102 @@
 .calculator button:hover {
   background: #0a3f2d;
 }
+
+
+
+
+
+
+
+.calculator .inputBox select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-family: var(--font-sfpro-bold);
+  font-size: 14px;
+  transition: all 0.2s;
+  background: white;
+  appearance: none; 
+}
+
+.calculator .inputBox select:focus {
+  outline: 2px solid #0B4833;
+  outline-offset: 0px;
+}
+
+.calculator .inputBox select option {
+  padding: 10px;
+  font-family: var(--font-sfpro-bold);
+}
+
+
+.calculator .inputBox select option:first-child {
+  font-weight: normal;
+  color: #6B7280; 
+}
+
+.calculator .inputBox select::-ms-expand {
+  display: none;
+}
+
+
+
+
+
+
+
+.inputWithIcon {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.icon {
+  width: 20px; /* Встановити відповідний розмір */
+  height: 20px; /* Встановити відповідний розмір */
+  position: absolute; /* Використати абсолютне позиціювання */
+  left: 12px; /* Позиціювати всередині поля вводу */
+  top: 50%; /* Центрувати по вертикалі */
+  transform: translateY(-50%); /* Відкоригувати для ідеального вертикального центрирования */
+  pointer-events: none; /* Забезпечити, щоб кліки йшли на поле вводу */
+}
+
+.inputBox input {
+  width: 100%; /* Забезпечити, щоб поле вводу займало повну ширину */
+  padding: 12px 16px; /* Утримувати вертикальне вирівнювання */
+  padding-left: 60px; /* Помітно збільшити лівий відступ для іконки */
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-family: var(--font-sfpro-bold);
+  box-sizing: border-box; /* Щоб правильніше враховувати padding і border у ширині */
+}
+
+/* Додаємо простір між текстом плейсхолдера та іконкою */
+.inputBox input::placeholder {
+  padding-left: 22px; /* Збільшити значення для більшої відстані */
+  color: rgba(0, 0, 0, 0.5); /* Колір плейсхолдера (можна змінити за потреби) */
+}
+
+.inputBox {
+  position: relative;
+}
+
+/* Стилі для відстані у режимі тільки для читання, якщо потрібно */
+.inputBox input[readonly] {
+  background-color: #f0f0f0; /* Світлий фон для стану тільки для читання */
+  cursor: not-allowed; /* Змінити курсор, щоб вказувати на те, що він тільки для читання */
+}
+
+
+
+
+
+
+
+
+
+
+
+
