@@ -27,6 +27,8 @@
 }
 
 .Map img{
+  width: 830px;
+  height: 620px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -58,7 +60,7 @@
   display: flex;
   background: white;
   border-radius: 16px;
-  padding: 32px;
+  padding-top: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   flex-direction: column;
   font-family: var(--font-sfpro-bold);
@@ -113,7 +115,9 @@
 
 .calculator .inputBox input {
   width: 100%;
-  padding: 12px 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
   border: 1px solid #E5E7EB;
   border-radius: 8px;
   transition: all 0.2s;
@@ -149,13 +153,13 @@
 
 
 
-
-
-
 .calculator .inputBox select {
   width: 100%;
-  padding: 12px 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 40px;
   border: 1px solid #E5E7EB;
+  color: var(--grey-light-45);
   border-radius: 8px;
   font-family: var(--font-sfpro-bold);
   font-size: 14px;
@@ -197,40 +201,40 @@
 }
 
 .icon {
-  width: 20px; /* Встановити відповідний розмір */
-  height: 20px; /* Встановити відповідний розмір */
-  position: absolute; /* Використати абсолютне позиціювання */
-  left: 12px; /* Позиціювати всередині поля вводу */
-  top: 50%; /* Центрувати по вертикалі */
-  transform: translateY(-50%); /* Відкоригувати для ідеального вертикального центрирования */
-  pointer-events: none; /* Забезпечити, щоб кліки йшли на поле вводу */
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .inputBox input {
-  width: 100%; /* Забезпечити, щоб поле вводу займало повну ширину */
-  padding: 12px 16px; /* Утримувати вертикальне вирівнювання */
-  padding-left: 60px; /* Помітно збільшити лівий відступ для іконки */
+  width: 100%;
+  padding: 12px 16px;
+  padding-left: 60px;
   border: 1px solid #E5E7EB;
   border-radius: 8px;
   transition: all 0.2s;
   font-family: var(--font-sfpro-bold);
-  box-sizing: border-box; /* Щоб правильніше враховувати padding і border у ширині */
+  box-sizing: border-box;
 }
 
-/* Додаємо простір між текстом плейсхолдера та іконкою */
+
 .inputBox input::placeholder {
-  padding-left: 22px; /* Збільшити значення для більшої відстані */
-  color: rgba(0, 0, 0, 0.5); /* Колір плейсхолдера (можна змінити за потреби) */
+  padding-left: 22px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .inputBox {
   position: relative;
 }
 
-/* Стилі для відстані у режимі тільки для читання, якщо потрібно */
+
 .inputBox input[readonly] {
-  background-color: #f0f0f0; /* Світлий фон для стану тільки для читання */
-  cursor: not-allowed; /* Змінити курсор, щоб вказувати на те, що він тільки для читання */
+  background-color: #f0f0f0;
+  cursor: not-allowed;
 }
 
 
