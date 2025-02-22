@@ -4,7 +4,6 @@ A platform that unites carriers and product owners, helping to find a reliable p
 
 # tools
 - next.js
-- jango
 - asp.net
 
 ### Frontend: Next  
@@ -28,8 +27,54 @@ A platform that unites carriers and product owners, helping to find a reliable p
      },
      "Npgsql": {
        "ConnectionString": ""
+     },
+     "MongoDB": {
+       "ConnectionString": "",
+       "MongoDbDatabase": "",
+       "MongoDbDatabaseChat": ""
      }
    }
-   
+
+4. authentication
+   ```json
+   {
+     "Logging": {
+       "LogLevel": {
+         "Default": "Information",
+         "Microsoft.AspNetCore": "Warning"
+       }
+     },
+     "Npgsql": {
+       "ConnectionString": ""
+     }
+   }
+
+5. Tracks
+   ```json
+   {
+     "Logging": {
+       "LogLevel": {
+         "Default": "Information",
+         "Microsoft.AspNetCore": "Warning"
+       }
+     },
+     "Npgsql": {
+       "ConnectionString": ""
+     }
+   }
+
+6. сommunity
+   ```json
+   {
+     "Logging": {
+       "LogLevel": {
+         "Default": "Information",
+         "Microsoft.AspNetCore": "Warning"
+       }
+     },
+     "Npgsql": {
+       "ConnectionString": ""
+     }
+   }
 # Design
 Design Figma: https://www.figma.com/design/SJ71x3HAH1ejxX0d0OiWpU/WWW?node-id=0-1&p=f&t=U6k3K4kyHjgMEqCT-0
