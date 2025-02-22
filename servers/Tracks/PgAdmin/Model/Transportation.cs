@@ -18,7 +18,7 @@ namespace PGAdminDAL.Model
         public string Where { get; set; }
         public double[] FromCoordinates { get; set; } = new double[2];
         public double[] WhereCoordinates { get; set; } = new double[2];
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }

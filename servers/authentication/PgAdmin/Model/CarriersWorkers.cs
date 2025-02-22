@@ -15,29 +15,20 @@ namespace PGAdminDAL.Model
         [Key]
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
-        private List<string> idCompany = new List<string>();
-        public List<string> IdCompany
-        {
-            get => idCompany;
-            set
-            {
-                idCompany = value;
-                // Update related properties if needed
-            }
-        }
-
+        public string idCompany { get; set; }
+        public List<string>? IDLastCompany { get; set; } = new();
         public string FullName { get; set; }
         public string Email { get; set; }
-        public bool EmailConfirmation { get; set; }
+        public bool? EmailConfirmation { get; set; }
         public string HashPassword { get; set; }
         public string PhoneNumber { get; set; }
-        public bool PhoneNumberConfirmation { get; set; }
-        public string Location { get; set; }
+        public bool? PhoneNumberConfirmation { get; set; }
+        public string? Location { get; set; }
         public string Avatar { get; set; }
         public string Role { get; set; }
 
-        private List<string> transportationId = new List<string>();
-        public List<string> TransportationId
+        private List<string>? transportationId = new List<string>();
+        public List<string>? TransportationId
         {
             get => transportationId;
             set
@@ -47,10 +38,10 @@ namespace PGAdminDAL.Model
             }
         }
 
-        public int SuccessfulTransportation { get; private set; }
+        public int? SuccessfulTransportation { get; private set; }
 
-        private List<string> chatsId = new List<string>();
-        public List<string> ChatsId
+        private List<string>? chatsId = new List<string>();
+        public List<string>? ChatsId
         {
             get => chatsId;
             set
@@ -59,11 +50,10 @@ namespace PGAdminDAL.Model
                 ChatsNumber = value.Count;
             }
         }
+        public int? ChatsNumber { get; private set; }
 
-        public int ChatsNumber { get; private set; }
-
-        private List<string> truckId = new List<string>();
-        public List<string> TruckId
+        private List<string>? truckId = new List<string>();
+        public List<string>? TruckId
         {
             get => truckId;
             set
@@ -73,16 +63,16 @@ namespace PGAdminDAL.Model
             }
         }
 
-        public int TruckNumber { get; private set; }
+        public int? TruckNumber { get; private set; }
 
         public string PublicKey { get; set; }
         public string PrivateKey { get; set; }
         public string CompanyKey { get; set; }
-        public string ConcurrencyStamp { get; set; }
-        public double Rating { get; set; }
+        public string? ConcurrencyStamp { get; set; }
+        public double? Rating { get; set; }
 
-        private List<string> reviewsId = new List<string>();
-        public List<string> ReviewsId
+        private List<string>? reviewsId = new List<string>();
+        public List<string>? ReviewsId
         {
             get => reviewsId;
             set
@@ -92,6 +82,6 @@ namespace PGAdminDAL.Model
             }
         }
 
-        public int ReviewsNumbers { get; private set; }
+        public int? ReviewsNumbers { get; private set; }
     }
 }

@@ -28,3 +28,5 @@ servers/aspnet/messager/messager/appsettings.json
 /servers/сommunity/Hash/obj
 /servers/сommunity/PgAdmin/obj
 /servers/сommunity/сommunity/obj
+*.json
+servers/authentication/authentication/appsettings.Development.json

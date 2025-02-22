@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace PgAdmin.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250214173808_Dostavka")]
+    [Migration("20250222142609_Dostavka")]
     partial class Dostavka
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace PgAdmin.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("ProductVersion", "8.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -98,7 +98,7 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("ConfirmationEmail")
+                    b.Property<bool?>("ConfirmationEmail")
                         .HasColumnType("boolean");
 
                     b.Property<string>("IdDirector")
@@ -109,45 +109,41 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("PhoneConfirmation")
+                    b.Property<bool?>("PhoneConfirmation")
                         .HasColumnType("boolean");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("Rating")
+                    b.Property<double?>("Rating")
                         .HasColumnType("double precision");
 
                     b.Property<string>("Registration")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<List<string>>("ReviewsId")
-                        .IsRequired()
+                    b.Property<List<string>>("ReviewsId")
                         .HasColumnType("text[]");
 
-                    b.Property<int>("ReviewsNumbers")
+                    b.Property<int?>("ReviewsNumbers")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SuccessfulTransportation")
+                    b.Property<int?>("SuccessfulTransportation")
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("TransportationNumber")
+                    b.Property<int?>("TransportationNumber")
                         .HasColumnType("integer");
 
                     b.Property<string>("TransportationOnline")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("TrucksNumber")
+                    b.Property<int?>("TrucksNumber")
                         .HasColumnType("integer");
 
-                    b.Property<int>("WorkersNumber")
+                    b.Property<int?>("WorkersNumber")
                         .HasColumnType("integer");
 
                     b.Property<string>("email")
@@ -169,15 +165,23 @@ namespace PgAdmin.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("EmailConfirmation")
+                    b.Property<bool?>("EmailConfirmation")
                         .HasColumnType("boolean");
+
+                    b.Property<List<string>>("EmployeeBusKeys")
+                        .HasColumnType("text[]");
+
+                    b.Property<List<string>>("EmployeeKeys")
+                        .HasColumnType("text[]");
+
+                    b.Property<List<string>>("EmployeeUsageKeys")
+                        .HasColumnType("text[]");
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -192,18 +196,26 @@ namespace PgAdmin.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("PhoneNumberConfirmation")
+                    b.Property<bool?>("PhoneNumberConfirmation")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("SuccessfulTransportation")
+                    b.Property<int?>("SuccessfulTransportation")
                         .HasColumnType("integer");
+
+                    b.Property<List<string>>("TransportationId")
+                        .HasColumnType("text[]");
+
+                    b.Property<List<string>>("TruckId")
+                        .HasColumnType("text[]");
+
+                    b.Property<List<string>>("WorkersId")
+                        .HasColumnType("text[]");
 
                     b.HasKey("Id");
 
@@ -219,11 +231,10 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<List<string>>("ChatsId")
-                        .IsRequired()
+                    b.Property<List<string>>("ChatsId")
                         .HasColumnType("text[]");
 
-                    b.Property<int>("ChatsNumber")
+                    b.Property<int?>("ChatsNumber")
                         .HasColumnType("integer");
 
                     b.Property<string>("CompanyKey")
@@ -231,14 +242,13 @@ namespace PgAdmin.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("EmailConfirmation")
+                    b.Property<bool?>("EmailConfirmation")
                         .HasColumnType("boolean");
 
                     b.Property<string>("FullName")
@@ -249,19 +259,17 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<List<string>>("IdCompany")
-                        .IsRequired()
+                    b.Property<List<string>>("IDLastCompany")
                         .HasColumnType("text[]");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("PhoneNumberConfirmation")
+                    b.Property<bool?>("PhoneNumberConfirmation")
                         .HasColumnType("boolean");
 
                     b.Property<string>("PrivateKey")
@@ -272,33 +280,34 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("Rating")
+                    b.Property<double?>("Rating")
                         .HasColumnType("double precision");
 
-                    b.PrimitiveCollection<List<string>>("ReviewsId")
-                        .IsRequired()
+                    b.Property<List<string>>("ReviewsId")
                         .HasColumnType("text[]");
 
-                    b.Property<int>("ReviewsNumbers")
+                    b.Property<int?>("ReviewsNumbers")
                         .HasColumnType("integer");
 
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("SuccessfulTransportation")
+                    b.Property<int?>("SuccessfulTransportation")
                         .HasColumnType("integer");
 
-                    b.PrimitiveCollection<List<string>>("TransportationId")
-                        .IsRequired()
+                    b.Property<List<string>>("TransportationId")
                         .HasColumnType("text[]");
 
-                    b.PrimitiveCollection<List<string>>("TruckId")
-                        .IsRequired()
+                    b.Property<List<string>>("TruckId")
                         .HasColumnType("text[]");
 
-                    b.Property<int>("TruckNumber")
+                    b.Property<int?>("TruckNumber")
                         .HasColumnType("integer");
+
+                    b.Property<string>("idCompany")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -314,7 +323,7 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("HorsePower")
@@ -324,6 +333,10 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<List<string>>("LastWorkers")
+                        .IsRequired()
+                        .HasColumnType("text[]");
+
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("text");
@@ -332,6 +345,14 @@ namespace PgAdmin.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Numbers")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<List<string>>("TransportationId")
+                        .IsRequired()
+                        .HasColumnType("text[]");
+
+                    b.Property<string>("TransportationOnline")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -463,35 +484,34 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("ConfirmationEmail")
+                    b.Property<bool?>("ConfirmationEmail")
                         .HasColumnType("boolean");
 
                     b.Property<string>("NameDirector")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("PhoneConfirmation")
+                    b.Property<bool?>("PhoneConfirmation")
                         .HasColumnType("boolean");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("Rating")
+                    b.Property<double?>("Rating")
                         .HasColumnType("double precision");
 
                     b.Property<string>("Registration")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<List<string>>("ReviewsId")
-                        .IsRequired()
+                    b.Property<List<string>>("ReviewsId")
                         .HasColumnType("text[]");
 
-                    b.Property<int>("ReviewsNumbers")
+                    b.Property<int?>("ReviewsNumbers")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SuccessfulTransportation")
+                    b.Property<int?>("SuccessfulTransportation")
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")
@@ -499,15 +519,12 @@ namespace PgAdmin.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("TransportationNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("TransportationOnline")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("WorkersNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("email")
@@ -533,15 +550,23 @@ namespace PgAdmin.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("EmailConfirmation")
+                    b.Property<bool?>("EmailConfirmation")
                         .HasColumnType("boolean");
+
+                    b.Property<List<string>>("EmployeeBusKeys")
+                        .HasColumnType("text[]");
+
+                    b.Property<List<string>>("EmployeeKeys")
+                        .HasColumnType("text[]");
+
+                    b.Property<List<string>>("EmployeeUsageKeys")
+                        .HasColumnType("text[]");
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -556,18 +581,26 @@ namespace PgAdmin.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("PhoneNumberConfirmation")
+                    b.Property<bool?>("PhoneNumberConfirmation")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("SuccessfulTransportation")
+                    b.Property<int?>("SuccessfulTransportation")
                         .HasColumnType("integer");
+
+                    b.Property<List<string>>("TransportationId")
+                        .HasColumnType("text[]");
+
+                    b.Property<List<string>>("TruckId")
+                        .HasColumnType("text[]");
+
+                    b.Property<List<string>>("WorkersId")
+                        .HasColumnType("text[]");
 
                     b.HasKey("Id");
 
@@ -583,11 +616,10 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<List<string>>("ChatsId")
-                        .IsRequired()
+                    b.Property<List<string>>("ChatsId")
                         .HasColumnType("text[]");
 
-                    b.Property<int>("ChatsNumber")
+                    b.Property<int?>("ChatsNumber")
                         .HasColumnType("integer");
 
                     b.Property<string>("CompanyKey")
@@ -595,14 +627,13 @@ namespace PgAdmin.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("EmailConfirmation")
+                    b.Property<bool?>("EmailConfirmation")
                         .HasColumnType("boolean");
 
                     b.Property<string>("FullName")
@@ -613,19 +644,17 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("IdCompany")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<List<string>>("IDLastCompany")
+                        .HasColumnType("text[]");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("PhoneNumberConfirmation")
+                    b.Property<bool?>("PhoneNumberConfirmation")
                         .HasColumnType("boolean");
 
                     b.Property<string>("PrivateKey")
@@ -636,25 +665,27 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("Rating")
+                    b.Property<double?>("Rating")
                         .HasColumnType("double precision");
 
-                    b.PrimitiveCollection<List<string>>("ReviewsId")
-                        .IsRequired()
+                    b.Property<List<string>>("ReviewsId")
                         .HasColumnType("text[]");
 
-                    b.Property<int>("ReviewsNumbers")
+                    b.Property<int?>("ReviewsNumbers")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SuccessfulTransportation")
+                    b.Property<int?>("SuccessfulTransportation")
                         .HasColumnType("integer");
 
-                    b.PrimitiveCollection<List<string>>("TransportationId")
-                        .IsRequired()
+                    b.Property<List<string>>("TransportationId")
                         .HasColumnType("text[]");
 
-                    b.Property<int>("ransportationNumber")
+                    b.Property<int?>("TransportationNumber")
                         .HasColumnType("integer");
+
+                    b.Property<string>("idCompany")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -666,14 +697,14 @@ namespace PgAdmin.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("From")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<double[]>("FromCoordinates")
+                    b.Property<double[]>("FromCoordinates")
                         .IsRequired()
                         .HasColumnType("double precision[]");
 
@@ -697,7 +728,7 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("TrackNumber")
@@ -708,7 +739,7 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<double[]>("WhereCoordinates")
+                    b.Property<double[]>("WhereCoordinates")
                         .IsRequired()
                         .HasColumnType("double precision[]");
 

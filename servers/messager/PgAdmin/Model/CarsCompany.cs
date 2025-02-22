@@ -22,10 +22,10 @@ namespace PGAdminDAL.Model
         public string Model { get; set; }
         public int HorsePower { get; set; }
         public int NumberTransportation { get; set; }
-        public List<string> TransportationId = new List<string>();
-        public List<string> TransportationOnline = new List<string>();
+        public List<string> TransportationId { get; set; } = new();
+        public string TransportationOnline { get; set; }
         public string WorkerId { get; set; }
-        public List<string> LastWorkers = new List<string>();
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public List<string> LastWorkers { get; set; } = new();
+        public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }
