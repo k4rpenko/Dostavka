@@ -61,6 +61,7 @@ namespace PGAdminDAL.Model
         public string PublicKey { get; set; }
         public string PrivateKey { get; set; }
         public string CompanyKey { get; set; }
+        public string? RefreshToken { get; set; }
         public string? ConcurrencyStamp { get; set; }
         public double? Rating { get; set; }
         private List<string>? reviewsId = new List<string>();

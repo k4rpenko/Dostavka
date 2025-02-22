@@ -64,6 +64,7 @@ namespace PgAdmin.Migrations
                     EmployeeKeys = table.Column<List<string>>(type: "text[]", nullable: true),
                     EmployeeBusKeys = table.Column<List<string>>(type: "text[]", nullable: true),
                     EmployeeUsageKeys = table.Column<List<string>>(type: "text[]", nullable: true),
+                    RefreshToken = table.Column<string>(type: "text", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -97,6 +98,7 @@ namespace PgAdmin.Migrations
                     PrivateKey = table.Column<string>(type: "text", nullable: false),
                     CompanyKey = table.Column<string>(type: "text", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: true),
+                    RefreshToken = table.Column<string>(type: "text", nullable: true),
                     Rating = table.Column<double>(type: "double precision", nullable: true),
                     ReviewsId = table.Column<List<string>>(type: "text[]", nullable: true),
                     ReviewsNumbers = table.Column<int>(type: "integer", nullable: true)
@@ -236,6 +238,7 @@ namespace PgAdmin.Migrations
                     EmployeeKeys = table.Column<List<string>>(type: "text[]", nullable: true),
                     EmployeeBusKeys = table.Column<List<string>>(type: "text[]", nullable: true),
                     EmployeeUsageKeys = table.Column<List<string>>(type: "text[]", nullable: true),
+                    RefreshToken = table.Column<string>(type: "text", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -266,6 +269,7 @@ namespace PgAdmin.Migrations
                     PublicKey = table.Column<string>(type: "text", nullable: false),
                     PrivateKey = table.Column<string>(type: "text", nullable: false),
                     CompanyKey = table.Column<string>(type: "text", nullable: false),
+                    RefreshToken = table.Column<string>(type: "text", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: true),
                     Rating = table.Column<double>(type: "double precision", nullable: true),
                     ReviewsId = table.Column<List<string>>(type: "text[]", nullable: true),
