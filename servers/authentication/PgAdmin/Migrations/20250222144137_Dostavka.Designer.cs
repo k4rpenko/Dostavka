@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace PgAdmin.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250222142609_Dostavka")]
+    [Migration("20250222144137_Dostavka")]
     partial class Dostavka
     {
         /// <inheritdoc />
@@ -205,6 +205,9 @@ namespace PgAdmin.Migrations
                     b.Property<bool?>("PhoneNumberConfirmation")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
+
                     b.Property<int?>("SuccessfulTransportation")
                         .HasColumnType("integer");
 
@@ -282,6 +285,9 @@ namespace PgAdmin.Migrations
 
                     b.Property<double?>("Rating")
                         .HasColumnType("double precision");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
 
                     b.Property<List<string>>("ReviewsId")
                         .HasColumnType("text[]");
@@ -590,6 +596,9 @@ namespace PgAdmin.Migrations
                     b.Property<bool?>("PhoneNumberConfirmation")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
+
                     b.Property<int?>("SuccessfulTransportation")
                         .HasColumnType("integer");
 
@@ -667,6 +676,9 @@ namespace PgAdmin.Migrations
 
                     b.Property<double?>("Rating")
                         .HasColumnType("double precision");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
 
                     b.Property<List<string>>("ReviewsId")
                         .HasColumnType("text[]");
