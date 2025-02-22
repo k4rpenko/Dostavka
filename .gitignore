@@ -1,3 +1,7 @@
+*.xml
+*.pfx
+*.json
+
 /client/.idea
 /servers/aspnet/messager/.vs
 /servers/aspnet/messager/messager/bin
@@ -16,3 +20,11 @@ servers/aspnet/messager/messager/appsettings.json
 /servers/messager/.vs
 /servers/messager/messager/obj
 /servers/messager/PgAdmin/obj
+/servers/Tracks/.vs
+/servers/Tracks/Hash/obj
+/servers/Tracks/PgAdmin/obj
+/servers/Tracks/Tracks/obj
+/servers/сommunity/.vs
+/servers/сommunity/Hash/obj
+/servers/сommunity/PgAdmin/obj
+/servers/сommunity/сommunity/obj
