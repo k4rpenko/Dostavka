@@ -15,17 +15,17 @@ namespace PGAdminDAL.Model
         public string idDirector { get; set; }
         public string Registration { get; set; }
         public string PhoneNumber { get; set; }
-        public bool PhoneConfirmation { get; set; }
+        public bool? PhoneConfirmation { get; set; }
         public string email { get; set; }
-        public bool ConfirmationEmail { get; set; }
+        public bool? ConfirmationEmail { get; set; }
         public string Avatar { get; set; }
-        public string WorkersNumber { get; set; }
-        public string TransportationNumber { get; set; }
-        public int SuccessfulTransportation { get; set; }
-        public string TransportationOnline { get; set; }
-        public double Rating { get; set; }
-        private List<string> reviewsId = new List<string>();
-        public List<string> ReviewsId
+        public string? WorkersNumber { get; set; }
+        public string? TransportationNumber { get; set; }
+        public int? SuccessfulTransportation { get; set; }
+        public string? TransportationOnline { get; set; }
+        public double? Rating { get; set; }
+        private List<string>? reviewsId = new List<string>();
+        public List<string>? ReviewsId
         {
             get => reviewsId;
             set
@@ -35,6 +35,6 @@ namespace PGAdminDAL.Model
             }
         }
 
-        public int ReviewsNumbers { get; private set; }
+        public int? ReviewsNumbers { get; private set; }
     }
 }
