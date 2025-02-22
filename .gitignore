@@ -30,3 +30,8 @@ servers/aspnet/messager/messager/appsettings.json
 /servers/сommunity/сommunity/obj
 *.json
 servers/authentication/authentication/appsettings.Development.json
+/servers/messager/Hash/bin
+/servers/messager/Hash/obj
+/servers/messager/MongoDB/bin
+/servers/messager/MongoDB/obj
+/servers/messager/PgAdmin/bin

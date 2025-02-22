@@ -15,6 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Hash\Hash.csproj" />
+    <ProjectReference Include="..\MongoDB\MongoDB.csproj" />
     <ProjectReference Include="..\PgAdmin\PgAdmin.csproj" />
   </ItemGroup>
 
