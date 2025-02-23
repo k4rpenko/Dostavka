@@ -1,6 +1,0 @@
-@сommunity_HostAddress = http://localhost:5234
-
-GET {{сommunity_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
