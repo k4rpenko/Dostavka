@@ -1,1 +1,13 @@
-/client/.idea
+*.xml
+*.pfx
+*.json
+
+/servers/Server/.vs
+/servers/Server/authentication/obj
+/servers/Server/Hash/bin
+/servers/Server/Hash/obj
+/servers/Server/messager/obj
+/servers/Server/MongoDB/obj
+/servers/Server/PgAdmin/obj
+/servers/Server/tracks/obj
+/servers/Server/сommunity/obj
