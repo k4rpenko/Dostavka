@@ -19,6 +19,7 @@ builder.Services.AddSignalR();
 builder.Services.AddSignalR().AddJsonProtocol(options => { });
 
 builder.Services.AddSingleton<AppMongoContext>();
+builder.Services.AddScoped<IArgon2Hasher, Argon2Hasher>();
 builder.Services.AddScoped<IJwt, JWT>();
 builder.Services.AddScoped<IHASH256, HASH256>();
 builder.Services.AddScoped<IRSAHash, RSAHash>();
@@ -27,7 +28,7 @@ builder.Services.AddScoped<IRSAHash, RSAHash>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://localhost:4200")
+        builder => builder.WithOrigins("http://localhost:3000")
                           .AllowAnyHeader()
                           .AllowAnyMethod()
                           .AllowCredentials());
@@ -64,6 +65,7 @@ app.Use(async (context, next) =>
 
 app.UseCors("AllowSpecificOrigin");
 app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
 app.UseAuthorization();
 
 if (app.Environment.IsDevelopment())
