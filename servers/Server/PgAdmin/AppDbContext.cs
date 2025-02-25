@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using PgAdmin.Model;
 using PGAdminDAL.Model;
 
 public class AppDbContext : DbContext
@@ -13,16 +14,13 @@ public class AppDbContext : DbContext
         _configuration = configuration;
     }
 
-    public DbSet<CarriersCompany> CarriersCompanies { get; set; }
-    public DbSet<CarriersDirector> CarriersDirectors { get; set; }
-    public DbSet<CarriersWorkers> CarriersWorkers { get; set; }
+
     public DbSet<CarRoles> CarRoles { get; set; }
-    public DbSet<CarsCompany> CarsCompanies { get; set; }
+    public DbSet<Cars> Cars { get; set; }
     public DbSet<Review> Reviews { get; set; }
-    public DbSet<ReviewCompany> ReviewCompanies { get; set; }
-    public DbSet<ShippersCompany> ShippersCompanies { get; set; }
-    public DbSet<ShippersDirector> ShippersDirectors { get; set; }
-    public DbSet<ShippersWorkers> ShippersWorkers { get; set; }
+    public DbSet<Companys> Companys { get; set; }
+    public DbSet<Directors> Directors { get; set; }
+    public DbSet<Workers> Workers { get; set; }
     public DbSet<Transportation> Transportations { get; set; }
     public DbSet<Roles> Roles { get; set; }
 
@@ -56,7 +54,9 @@ public class AppDbContext : DbContext
             new Roles { Id = 2, Role = "logistician" },
             new Roles { Id = 3, Role = "senior logistician" },
             new Roles { Id = 4, Role = "director" },
-            new Roles { Id = 5, Role = "Admin" }
+            new Roles { Id = 5, Role = "Admin" },
+            new Roles { Id = 6, Role = "carriers" },
+            new Roles { Id = 7, Role = "shippers" }
         );
     }
 }

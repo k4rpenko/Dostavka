@@ -11,3 +11,8 @@
 /servers/Server/PgAdmin/obj
 /servers/Server/tracks/obj
 /servers/Server/сommunity/obj
+/servers/Server/main/bin
+/servers/Server/main/obj
+/servers/Server/messager/bin
+/servers/Server/MongoDB/bin
+/servers/Server/PgAdmin/bin

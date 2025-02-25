@@ -16,6 +16,14 @@ namespace Hash
             return key;
         }
 
+        public byte[] HexStringToByteArray(string hex)
+        {
+            hex = hex.Replace("-", "");
+            return Enumerable.Range(0, hex.Length)
+                             .Where(i => i % 2 == 0)
+                             .Select(i => Convert.ToByte(hex.Substring(i, 2), 16))
+                             .ToArray();
+        }
 
         public string Encrypt(string message, string key)
         {

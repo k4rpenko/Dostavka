@@ -27,7 +27,7 @@ builder.Services.AddScoped<IRSAHash, RSAHash>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://localhost:4200")
+        builder => builder.WithOrigins("http://localhost:3000")
                           .AllowAnyHeader()
                           .AllowAnyMethod()
                           .AllowCredentials());
@@ -64,6 +64,7 @@ app.Use(async (context, next) =>
 
 app.UseCors("AllowSpecificOrigin");
 app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
 app.UseAuthorization();
 
 if (app.Environment.IsDevelopment())
