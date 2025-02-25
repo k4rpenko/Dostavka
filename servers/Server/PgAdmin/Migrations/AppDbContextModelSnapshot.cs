@@ -326,7 +326,7 @@ namespace PgAdmin.Migrations
                     b.Property<int?>("ReviewsNumbers")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Role")
+                    b.Property<string>("RoleWork")
                         .HasColumnType("text");
 
                     b.Property<int?>("SuccessfulTransportation")
@@ -410,6 +410,10 @@ namespace PgAdmin.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RoleWork")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("SuccessfulTransportation")
@@ -500,6 +504,10 @@ namespace PgAdmin.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("RoleWork")
                         .IsRequired()
                         .HasColumnType("text");
 

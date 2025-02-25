@@ -1,5 +1,5 @@
-export interface WorkersData {
-    id?: string;
+export interface WorkerData {
+    id: string;
     idCompany: string;
     idLastCompany?: string[];
     fullName: string;
@@ -11,6 +11,7 @@ export interface WorkersData {
     location?: string;
     avatar: string;
     role: string;
+    roleWork: string;
     transportationId?: string[];
     transportationNumber?: number;
     successfulTransportation?: number;
@@ -18,10 +19,10 @@ export interface WorkersData {
     chatsNumber?: number;
     truckId?: string[];
     truckNumber?: number;
+    publicServerKey: string;
     publicKey: string;
     privateKey: string;
     companyKey: string;
-    concurrencyStamp?: string;
     refreshToken?: string;
     rating?: number;
     reviewsId?: string[];

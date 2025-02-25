@@ -28,6 +28,7 @@ namespace PgAdmin.Model
         public string? Location { get; set; }
         public string Avatar { get; set; }
         public string Role { get; set; }
+        public string RoleWork { get; set; }
         private List<string>? transportationId = new List<string>();
         public List<string>? TransportationId
         {

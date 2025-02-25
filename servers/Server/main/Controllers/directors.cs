@@ -11,12 +11,12 @@ namespace main.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class redirect : Controller
+    public class directors : Controller
     {
         private readonly AppDbContext context;
         private readonly IJwt _jwt;
 
-        public redirect(IJwt jwt, AppDbContext _context)
+        public directors(IJwt jwt, AppDbContext _context)
         {
             context = _context;
             _jwt = jwt;

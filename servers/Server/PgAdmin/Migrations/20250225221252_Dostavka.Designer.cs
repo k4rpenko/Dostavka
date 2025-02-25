@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace PgAdmin.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250223131925_Dostavka")]
+    [Migration("20250225221252_Dostavka")]
     partial class Dostavka
     {
         /// <inheritdoc />
@@ -329,7 +329,7 @@ namespace PgAdmin.Migrations
                     b.Property<int?>("ReviewsNumbers")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Role")
+                    b.Property<string>("RoleWork")
                         .HasColumnType("text");
 
                     b.Property<int?>("SuccessfulTransportation")
@@ -413,6 +413,10 @@ namespace PgAdmin.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RoleWork")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("SuccessfulTransportation")
@@ -503,6 +507,10 @@ namespace PgAdmin.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("RoleWork")
                         .IsRequired()
                         .HasColumnType("text");
 

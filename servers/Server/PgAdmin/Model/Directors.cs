@@ -35,6 +35,7 @@ namespace PgAdmin.Model
         public List<string>? EmployeeKeys { get; set; } = new();
         public List<string>? EmployeeBusKeys { get; set; } = new();
         public List<string>? EmployeeUsageKeys { get; set; } = new();
+        public string RoleWork { get; set; }
         public string? RefreshToken { get; set; }
         public string? ConcurrencyStamp { get; set; }
     }

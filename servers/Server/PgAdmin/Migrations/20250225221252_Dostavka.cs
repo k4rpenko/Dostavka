@@ -72,7 +72,7 @@ namespace PgAdmin.Migrations
                     SuccessfulTransportation = table.Column<int>(type: "integer", nullable: true),
                     TransportationOnline = table.Column<string>(type: "text", nullable: true),
                     Rating = table.Column<double>(type: "double precision", nullable: true),
-                    Role = table.Column<string>(type: "text", nullable: true),
+                    RoleWork = table.Column<string>(type: "text", nullable: true),
                     ReviewsId = table.Column<List<string>>(type: "text[]", nullable: true),
                     ReviewsNumbers = table.Column<int>(type: "integer", nullable: true)
                 },
@@ -103,6 +103,7 @@ namespace PgAdmin.Migrations
                     EmployeeKeys = table.Column<List<string>>(type: "text[]", nullable: true),
                     EmployeeBusKeys = table.Column<List<string>>(type: "text[]", nullable: true),
                     EmployeeUsageKeys = table.Column<List<string>>(type: "text[]", nullable: true),
+                    RoleWork = table.Column<string>(type: "text", nullable: false),
                     RefreshToken = table.Column<string>(type: "text", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: true)
                 },
@@ -180,6 +181,7 @@ namespace PgAdmin.Migrations
                     Location = table.Column<string>(type: "text", nullable: true),
                     Avatar = table.Column<string>(type: "text", nullable: false),
                     Role = table.Column<string>(type: "text", nullable: false),
+                    RoleWork = table.Column<string>(type: "text", nullable: false),
                     TransportationId = table.Column<List<string>>(type: "text[]", nullable: true),
                     TransportationNumber = table.Column<int>(type: "integer", nullable: true),
                     SuccessfulTransportation = table.Column<int>(type: "integer", nullable: true),

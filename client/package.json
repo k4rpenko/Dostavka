@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "lucide-react": "^0.475.0",
+    "@next/env": "^15.1.7",
+    "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "emoji-picker-react": "^4.12.0",
+    "idb": "^8.0.2",
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.475.0",
     "next": "15.1.6",
     "openrouteservice-js": "^0.4.1",
     "react": "^19.0.0",

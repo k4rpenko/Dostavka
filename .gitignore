@@ -16,3 +16,4 @@
 /servers/Server/messager/bin
 /servers/Server/MongoDB/bin
 /servers/Server/PgAdmin/bin
+client/.env
