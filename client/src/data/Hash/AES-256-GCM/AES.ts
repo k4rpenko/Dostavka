@@ -1,35 +1,33 @@
-async function decryptAES(encryptedBase64, keyBase64, ivBase64, tagBase64) {
-    // Декодуємо дані з Base64
-    const encryptedData = Uint8Array.from(atob(encryptedBase64), c => c.charCodeAt(0));
-    const keyBuffer = Uint8Array.from(atob(keyBase64), c => c.charCodeAt(0));
-    const ivBuffer = Uint8Array.from(atob(ivBase64), c => c.charCodeAt(0));
-    const tagBuffer = Uint8Array.from(atob(tagBase64), c => c.charCodeAt(0));
+import * as crypto from 'crypto';
 
-    // AES-GCM вимагає, щоб тег був в кінці зашифрованого повідомлення
-    const encryptedBuffer = new Uint8Array(encryptedData.length + tagBuffer.length);
-    encryptedBuffer.set(encryptedData);
-    encryptedBuffer.set(tagBuffer, encryptedData.length);
+export class DecryptAES {
+    private keyBuffer: Buffer;
+    private ivBuffer: Buffer;
+    private ALGORITHM = 'aes-256-gcm';
 
-    // Імпортуємо AES-ключ
-    const cryptoKey = await window.crypto.subtle.importKey(
-        "raw",
-        keyBuffer,
-        { name: "AES-GCM" },
-        false,
-        ["decrypt"]
-    );
+    constructor(keyBase64: string, ivBase64: string) {
+        this.keyBuffer = Buffer.from(keyBase64, 'base64');
+        this.ivBuffer = Buffer.from(ivBase64, 'base64');
+    }
 
-    try {
-        // Декодуємо повідомлення
-        const decryptedBuffer = await window.crypto.subtle.decrypt(
-            { name: "AES-GCM", iv: ivBuffer },
-            cryptoKey,
-            encryptedBuffer
-        );
+    public decrypt(data: string, tagBase64: string): string {
+        try {
+            const encryptedBuffer = Buffer.from(data, 'base64');
+            const tagBuffer = Buffer.from(tagBase64, 'base64');
 
-        return new TextDecoder().decode(decryptedBuffer); // Розшифрований текст
-    } catch (error) {
-        console.error("❌ Помилка розшифрування:", error);
-        return null;
+            const decipher = crypto.createDecipheriv(this.ALGORITHM, this.keyBuffer, this.ivBuffer) as crypto.DecipherGCM;
+    
+            decipher.setAuthTag(tagBuffer);
+    
+            const decrypted = Buffer.concat([
+                decipher.update(encryptedBuffer),
+                decipher.final(),
+            ]);
+    
+            return decrypted.toString('utf8');
+        } catch (error) {
+            console.error("❌ Помилка розшифрування:", error);
+            return `❌ Помилка розшифрування: ${error}`;
+        }
     }
 }

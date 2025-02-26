@@ -19,6 +19,7 @@ builder.Services.AddSignalR();
 builder.Services.AddSignalR().AddJsonProtocol(options => { });
 
 builder.Services.AddSingleton<AppMongoContext>();
+builder.Services.AddScoped<HashMessages>();
 builder.Services.AddScoped<IJwt, JWT>();
 builder.Services.AddScoped<IHASH256, HASH256>();
 builder.Services.AddScoped<IRSAHash, RSAHash>();
