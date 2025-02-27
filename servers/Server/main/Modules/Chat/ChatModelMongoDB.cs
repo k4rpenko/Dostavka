@@ -42,13 +42,13 @@ namespace main.Models.MessageChat
         public ObjectId Id { get; set; }
 
         [BsonElement("UsersID")]
-        public List<string> UsersID { get; set; } = new List<string>();
+        public List<string>? UsersID { get; set; } = new List<string>();
 
         [BsonElement("Chat")]
         public List<Message>? Chat { get; set; } = new List<Message>();
 
         [BsonElement("Timestamp")]
-        public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+        public DateTime? Timestamp { get; set; } = DateTime.UtcNow;
     }
 }
 

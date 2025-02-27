@@ -1,41 +1,7 @@
+import chatID from '@/conponents/shippers/chat/chatID';
 import styles from './style.module.scss';
 
 export default function Chat() {
-    const usersJSON = [
-        {
-            NameCompany: "UPS Shipping",
-            LastMessage: "Hello, your product is already here",
-            data: "2025-02-02T03:21:56"
-        },
-        {
-            NameCompany: "Nova Poshta",
-            LastMessage: "Hello, I have signed",
-            data: "2025-02-12T06:15:02"
-        },
-    ];
-
-    const timeAgo = (dateTimeString) => {
-        const messageDate = new Date(dateTimeString);
-        const now = new Date();
-        const diffMs = now - messageDate;
-
-        const seconds = Math.floor(diffMs / 1000);
-        const minutes = Math.floor(seconds / 60);
-        const hours = Math.floor(minutes / 60);
-        const days = Math.floor(hours / 24);
-
-        if (days > 0) {
-            return `${days} дн. тому`;
-        } else if (hours > 0) {
-            return `${hours} год. тому`;
-        } else if (minutes > 0) {
-            return `${minutes} хв. тому`;
-        } else {
-            return `щойно`;
-        }
-    };
-
-
     return (
         <div className={styles.appContainer}>
             <div className={styles.main}>
@@ -112,24 +78,7 @@ export default function Chat() {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.mainUserChat}>
-                        {usersJSON.map((user, index) => (
-                            <a className={styles.chatContainer}>
-                                <div className={styles.chatUser}>
-                                    <div className={styles.userAvatar}></div>
-                                    <div className={styles.chatText}>
-                                        <div className={styles.chatUserInfo}>
-                                            <span>{user.NameCompany}</span>
-                                            <span className={styles.chatUserTime}>{timeAgo(user.data)}</span>
-                                        </div>
-                                        <div className={styles.chatMessageItem}>
-                                            <samp>{user.LastMessage}</samp>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        ))}
-                    </div>
+                    <chatID />
                 </div>
                 <div className={styles.chatMessagesContainer}>
                     <div className={styles.chatHeader}>

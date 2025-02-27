@@ -8,6 +8,7 @@ using MongoDB;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using main.Models.MessageChat;
+using PgAdmin.Model;
 
 namespace main.Controllers
 {
@@ -120,7 +121,7 @@ namespace main.Controllers
             var newMessage = new Chats
             {
                 Id = chatID,
-                Message = new Message
+                Message = new Models.MessageChat.Message
                 {
                     Id = lastMessageId + 1,
                     IdUser = id,
@@ -180,7 +181,7 @@ namespace main.Controllers
 
             var PeopleInfo = new Chats
             {
-                Message = new Message
+                Message = new Models.MessageChat.Message
                 {
                     IdUser = People.Id,
                     Text = "",
@@ -204,7 +205,7 @@ namespace main.Controllers
             var YouInfo = new Chats
             {
                 Id = newChat.UsersID.ToString(),
-                Message = new Message
+                Message = new Models.MessageChat.Message
                 {
                     IdUser = id,
                     Text = "",
@@ -221,5 +222,68 @@ namespace main.Controllers
             return Ok(new { PeopleInfo });
 
         }
+
+        [HttpGet("AllChats")]
+        public async Task<IActionResult> AllChats()
+        {
+            if (!Request.Cookies.TryGetValue("_AT", out string cookieValue)){ return Unauthorized(); }
+
+            var id = new JWT().GetUserIdFromToken(cookieValue);
+            var You = await context.Workers.FirstOrDefaultAsync(u => u.Id == id);
+            if (You == null) { return Unauthorized(); }
+
+            List<GetChats> DATA = new List<GetChats>();
+            foreach (var chat in You.ChatsId)
+            {
+                var objectId = ObjectId.Parse(chat.ToString());
+                var filter = Builders<ChatModelMongoDB>.Filter.Eq(chat => chat.Id, objectId);
+                var chatModel = await _customers.Find(filter).FirstOrDefaultAsync();
+
+                var workerId = chatModel.UsersID.FirstOrDefault(u => u != id);
+                var Worker = await context.Workers.FirstOrDefaultAsync(u => u.Id == workerId);
+                var CompanyWorker = await context.Companys.FirstOrDefaultAsync(u => u.Id == Worker.idCompany);
+
+                var chatInfo = new GetChats
+                {
+                    chat = new ChatModel
+                    {
+                        Id = chatModel.Id.ToString(),
+                        Messages = chatModel.Chat
+                            .TakeLast(100)
+                            .Select(m => new main.Modules.Chat.Message
+                            {
+                                Id = m.Id,
+                                IdUser = m.IdUser,
+                                Text = m.Text,
+                                Img = m.Img,
+                                IdAnswer = m.IdAnswer,
+                                View = m.View,
+                                Send = m.Send,
+                                Chang = m.Chang,
+                                CreatedAt = m.CreatedAt,
+                                UpdatedAt = m.UpdatedAt
+                            }).ToList(),
+                    },
+                    companys = new CompanysModel
+                    {
+                        Title = CompanyWorker.Title,
+                        Avatar = CompanyWorker.Avatar,
+                        Rating = CompanyWorker.Rating
+                    },
+                    worker = new WorkerModel
+                    {
+                        Id = workerId,
+                        FullName = Worker.FullName,
+                        PhoneNumber = Worker.PhoneNumber,
+                        Email = Worker.Email,
+                        Avatar = Worker.Avatar
+                    }
+                };
+                DATA.Add(chatInfo);
+            }
+            return Ok(new {Chats = DATA});
+        }
+
     }
 }
+
