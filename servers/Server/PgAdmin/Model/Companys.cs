@@ -40,5 +40,8 @@ namespace PgAdmin.Model
         }
 
         public int? ReviewsNumbers { get; private set; }
+        public object Name { get; internal set; }
+        public object Address { get; internal set; }
+        public object Phone { get; internal set; }
     }
 }
