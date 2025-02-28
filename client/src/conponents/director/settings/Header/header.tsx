@@ -14,10 +14,11 @@ export default function Header() {
                     <div className={styles.TitleItem}>
                         <div className={styles.TitleLogoName}><h1>Settings</h1></div>
                     </div>
+                    <div className={styles.TitleV}><samp>1.0V</samp></div>
                 </div>
                 <div className={styles.Main}>
                     <div className={styles.Pages}>
-                        <a href='profile' className={`${styles.PagesBox} ${currentPage === "profile"  ? styles.active : ""}`}>
+                    <a href='profile' className={`${styles.PagesBox} ${currentPage === "profile"  ? styles.active : ""}`}>
                             <div className={styles.PagesBoxLogo}>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5625 18H3.43817C2.73178 18 2.21015 17.303 2.47658 16.662C3.71276 13.698 6.61693 12 9.99985 12C13.3838 12 16.288 13.698 17.5241 16.662C17.7906 17.303 17.2689 18 16.5625 18ZM5.91667 5.99998C5.91667 3.79398 7.74899 1.99998 9.99985 1.99998C12.2517 1.99998 14.083 3.79398 14.083 5.99998C14.083 8.20599 12.2517 9.99998 9.99985 9.99998C7.74899 9.99998 5.91667 8.20599 5.91667 5.99998ZM19.9557 17.636C19.2136 14.277 16.8923 11.798 13.837 10.673C15.456 9.39596 16.4002 7.33093 16.0532 5.06993C15.651 2.44693 13.4236 0.347977 10.7348 0.0419769C7.02321 -0.381023 3.87507 2.44898 3.87507 5.99998C3.87507 7.88998 4.76929 9.57396 6.1637 10.673C3.10743 11.798 0.787164 14.277 0.044024 17.636C-0.225466 18.857 0.778998 20 2.05397 20H17.9457C19.2217 20 20.2262 18.857 19.9557 17.636Z" fill="#6F6F73"/>
@@ -55,9 +56,7 @@ export default function Header() {
                             </div>
                             <div className={styles.PagesBoxText}><samp>Workers</samp></div>
                         </a>
-
                     </div>
-                
                 </div>
             </div>
         </header>

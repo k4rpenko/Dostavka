@@ -1,36 +1,31 @@
 .Header{
   display: flex;
   background-color: var(--grey-light2-99);
-  height: 100%;
+  height: 100vh;
   min-width: 400px;
-  font-size: 35px;
-  padding-top: 38px;
 }
 
 
 .HeaderApp{
   display: flex;
-  gap: 70px;
+  gap: 100px;
   padding: 25px;
   width: 100%;
   flex-direction: column;
-
 }
 
-
+//Title
 .Title{
-  padding: 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .TitleItem{
   display: flex;
   gap: 15px;
   justify-content: space-between;
-  
 }
 
 .TitleLogo{
@@ -42,6 +37,9 @@
   justify-content: center;
   align-items: center;
 
+  svg{
+
+  }
 }
 
 .TitleLogoName{
@@ -50,7 +48,7 @@
 
   h1{
     font-family: var(--font-sfpro-regular);
-    font-size: 35px;
+    font-size: 20px;
   }
 }
 
@@ -81,14 +79,12 @@
 .PagesBox{
   text-decoration: none;
   cursor: pointer;
-  padding: 10px 40px;
+  padding: 10px 15px;
   display: flex;
   border-radius: 5px;
   gap: 25px;
   align-items: center;
   transition: 0.3s;
-  height: 35px;
-  
 
   &:hover{
     background-color: var(--white-dark);
@@ -121,9 +117,9 @@
 
   samp{
     color: var(--grey-light-45);
-    font-size: 18px;
+    font-size: 17px;
     font-family: var(--font-sfpro-bold);
-    display: block;  }
+  }
 }
 
 //User

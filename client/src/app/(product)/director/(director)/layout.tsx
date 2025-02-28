@@ -1,5 +1,5 @@
 "use client";
-import Header from "@/conponents/director/Header/header";
+import Header from "@/conponents/director/settings/Header/header";
 import { useEffect, useState } from "react";
 import styles from './style.module.scss';
 import axios from "axios";
