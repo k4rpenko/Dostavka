@@ -1,22 +1,28 @@
+export interface Messagers{
+    message: Message;
+    company: CompanyModel;
+    worker: WorkerModel;
+}
+
 export interface Message {
     id: number;
     idUser: string;
     text: string;
-    type: string;
     img?: string;
     idAnswer?: string;
     view?: boolean;
     send?: boolean;
     chang?: boolean;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
 
-export interface ChatModel {
+export interface WorkerModel {
     id: string;
-    usersID: string;
-    messages?: Message[];
-    timestamp?: Date;
+    fullName?: string;
+    phoneNumber: string;
+    email: string;
+    avatar: string;
 }
 
 export interface CompanyModel {
@@ -28,18 +34,4 @@ export interface CompanyModel {
     avatar: string;
     rating?: number;
     reviewsNumbers?: number;
-}
-
-export interface WorkerModel {
-    id: string;
-    fullName?: string;
-    phoneNumber: string;
-    email: string;
-    avatar: string;
-}
-
-export interface Chats {
-    chat: ChatModel;
-    company: CompanyModel;
-    worker: WorkerModel;
 }

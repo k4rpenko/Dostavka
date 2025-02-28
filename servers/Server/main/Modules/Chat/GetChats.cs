@@ -18,6 +18,7 @@ namespace main.Modules.Chat
         public int Id { get; set; }
         public string IdUser { get; set; }
         public string Text { get; set; }
+        public string Type { get; set; }
         public string? Img { get; set; }
         public string? IdAnswer { get; set; }
         public bool? View { get; set; }

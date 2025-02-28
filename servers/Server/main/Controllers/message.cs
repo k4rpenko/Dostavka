@@ -255,6 +255,7 @@ namespace main.Controllers
                                 Id = m.Id,
                                 IdUser = m.IdUser,
                                 Text = m.Text,
+                                Type = m.IdUser != id ? "incoming" : "outgoing",
                                 Img = m.Img,
                                 IdAnswer = m.IdAnswer,
                                 View = m.View,

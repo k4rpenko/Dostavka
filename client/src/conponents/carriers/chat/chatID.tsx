@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Chats } from '@/data/Module/Chats';
 
-export default function ChatID() {
+export default function ChatID({ MessagerSet }: { MessagerSet: (chat: Chats | null) => void }) {
     const [chatModel, setChatModel] = useState<Chats[] | []>([]);
 
     const timeAgo = (dateTimeString: string): string => {
@@ -47,7 +47,6 @@ export default function ChatID() {
             if (response.status === 200)
             {
                 const parsedData: Chats[] = response.data.chats;
-                console.log(parsedData)
                 setChatModel(parsedData);
             }
         }
@@ -60,7 +59,7 @@ export default function ChatID() {
     return(
         <div className={styles.mainUserChat}>
             {chatModel!.map((user, index) => (
-                <a key={index} className={styles.chatContainer}>
+                <a key={index} className={styles.chatContainer} onClick={() => MessagerSet(user)}>
                     <div className={styles.chatUser}>
                         <div className={styles.userAvatar}>
                             <img src={user.worker.avatar} alt="" />
