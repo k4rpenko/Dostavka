@@ -1,0 +1,167 @@
+.Header{
+  display: flex;
+  background-color: var(--grey-light2-99);
+  height: 100%;
+  min-width: 400px;
+  font-size: 35px;
+  padding-top: 38px;
+}
+
+
+.HeaderApp{
+  display: flex;
+  gap: 70px;
+  padding: 25px;
+  width: 100%;
+  flex-direction: column;
+
+}
+
+
+.Title{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.TitleItem{
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  
+}
+
+.TitleLogo{
+  display: flex;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: var(--grey-light-45);
+  justify-content: center;
+  align-items: center;
+
+}
+
+.TitleLogoName{
+  display: flex;
+  align-items: center;
+
+  h1{
+    font-family: var(--font-sfpro-regular);
+    font-size: 35px;
+  }
+}
+
+.TitleV{
+
+  samp{
+    color: var(--grey-light-60);
+    font-size: 12px;
+    font-family: var(--font-sfpro-regular);
+  }
+}
+
+
+.Main{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+//pages
+.Pages{
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+}
+
+.PagesBox{
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 40px;
+  display: flex;
+  border-radius: 5px;
+  gap: 25px;
+  align-items: center;
+  transition: 0.3s;
+  height: 35px;
+  
+
+  &:hover{
+    background-color: var(--white-dark);
+  }
+}
+
+.PagesBox.active {
+  text-decoration: none;
+  background: var(--hover);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+  path{
+    fill: var(--white);
+  }
+
+  samp{
+    color: var(--white);
+  }
+}
+
+.PagesBoxLogo{
+  display: flex;
+
+  path{
+    fill: var(--grey-light-45);
+  }
+}
+
+.PagesBoxText{
+
+  samp{
+    color: var(--grey-light-45);
+    font-size: 18px;
+    font-family: var(--font-sfpro-bold);
+    display: block;  }
+}
+
+//User
+.UserItem{
+  padding: 7px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  gap: 15px;
+  transition: 0.3s;
+  border: 1px solid var(--grey-light-80);
+
+  &:hover{
+    background-color: var(--white-dark);
+  }
+}
+
+.UserAvatar{
+  display: flex;
+
+  img{
+    height: 35px;
+    width: 35px;
+    border-radius: 100px;
+  }
+}
+
+.UserText{
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center;
+
+
+  p{
+    color: var(--grey-light-45);
+    font-size: 13px;
+    font-family: var(--font-sfpro-bold);
+  }
+}

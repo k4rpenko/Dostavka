@@ -16,7 +16,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       try {
         const workerCache = await cacheService.getItem('Worker')
         if(workerCache == null){
-          const response = await axios.get("https://localhost:7086/api/redirect/job", {
+          const response = await axios.get("https://localhost:51419/api/workers/set-cookie/carriers", {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
           });
