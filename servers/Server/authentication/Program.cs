@@ -3,17 +3,17 @@ using Hash.Interface;
 using Microsoft.EntityFrameworkCore;
 using MongoDB;
 using System;
+using authentication.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+// Add services to the container
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetSection("Npgsql:ConnectionString").Value));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 builder.Services.AddSignalR();
 builder.Services.AddSignalR().AddJsonProtocol(options => { });
@@ -23,7 +23,7 @@ builder.Services.AddScoped<IJwt, JWT>();
 builder.Services.AddScoped<IHASH256, HASH256>();
 builder.Services.AddScoped<IRSAHash, RSAHash>();
 
-
+// Add CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
@@ -33,12 +33,11 @@ builder.Services.AddCors(options =>
                           .AllowCredentials());
 });
 
-
 var app = builder.Build();
 
 app.Use(async (context, next) =>
 {
-    if (context.Request.Path.Value.Contains("@"))
+    if (context.Request.Path.Value?.Contains("@") == true)
     {
         context.Response.StatusCode = 403;
         await context.Response.WriteAsync("Access Denied");
@@ -47,9 +46,9 @@ app.Use(async (context, next) =>
 
     context.Response.OnStarting(() =>
     {
-        context.Response.Headers.Add("X-Frame-Options", "DENY");
+        context.Response.Headers.Append("X-Frame-Options", "DENY");
 
-        context.Response.Headers.Add("Content-Security-Policy",
+        context.Response.Headers.Append("Content-Security-Policy",
             "default-src 'self'; " +
             "script-src 'self' http://localhost:4200 https://localhost:8080 https://localhost:8081 'unsafe-inline' 'unsafe-eval'; " +
             "connect-src 'self'; " +
@@ -62,8 +61,16 @@ app.Use(async (context, next) =>
     await next();
 });
 
+// Configure the HTTP request pipeline
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 app.UseCors("AllowSpecificOrigin");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
 await app.RunAsync();
