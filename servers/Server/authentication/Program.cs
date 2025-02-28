@@ -7,7 +7,7 @@ using authentication.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
+// Add service
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetSection("Npgsql:ConnectionString").Value));
 
@@ -23,7 +23,7 @@ builder.Services.AddScoped<IJwt, JWT>();
 builder.Services.AddScoped<IHASH256, HASH256>();
 builder.Services.AddScoped<IRSAHash, RSAHash>();
 
-// Add CORS
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
@@ -61,7 +61,7 @@ app.Use(async (context, next) =>
     await next();
 });
 
-// Configure the HTTP request pipeline
+//HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
