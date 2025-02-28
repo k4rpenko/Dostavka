@@ -1,0 +1,176 @@
+.container {
+    width: 100%;
+    font-family: var(--font-sfpro-regular);
+
+  }
+  .header{
+    background-color: #EEEEEE;
+    height: 50px;
+    width: 100%;
+    margin-bottom: -15px;
+  }
+  
+  .title {
+    padding: 10px 0 0 10px;
+
+    font-size: 20px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+  }
+  
+  .avatar img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    
+  }
+  
+  .name {
+    font-size: 19px;
+    font-family: var(--font-sfpro-bold);
+  }
+  
+  .role {
+    display: flex;
+    border-radius: 15px;
+    width: 150px;
+    min-height: 30px;
+    background-color: rgba(48, 209, 88, 0.2);
+    border: 1px solid var(--grean);
+    align-items: center;
+    justify-content: center;
+    color: var(--hover);
+    font-family: var(--font-sfpro-medium);
+    font-size: 16px;
+  }
+  
+  .rating {
+    margin-bottom: 10px;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .item {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    gap: 8px;
+    width: 400px;
+    height: 30px;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+  
+  .backButton {
+    margin-top: 15px;
+    margin-left: 25px;
+
+    padding: 10px 15px;
+    background: #0B4833;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+  }
+  
+
+  
+  
+.Trucks{
+  display: flex;
+  gap:20px;
+  
+}
+
+.Truck{
+  background-color: var(--grey-light-93);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+}
+
+.TruckHeader{
+  display: flex;
+  height: 100%;
+  min-height: 175px;
+  flex-direction: column;
+}
+
+.TruckTitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2{
+    color: var(--grey);
+    font-size: 20px;
+  }
+}
+
+.TruckTitleWork{
+  font-family: var(--font-sfpro-bold);
+  font-size: 15px;
+  color: var(--oreng);
+}
+
+.TruckTitleRoute{
+  font-family: var(--font-sfpro-bold);
+  font-size: 15px;
+  color: var(--grean);
+}
+
+.TruckMainCar {
+  position: relative;
+  margin-top: -130px;
+
+
+  img {
+    margin-left: 25%;
+    width: 250px;
+    position: relative;
+    z-index: 2;
+
+  }
+
+  .TruckMainCarShadow {
+    position: absolute;
+    bottom: 5px;
+    left: 60%;
+    width: 200px;
+    height: 20px;
+    background: rgb(0 0 0);
+    border-radius: 50%;
+    filter: blur(10px);
+    z-index: 1;
+
+  }
+}
+.addButton{
+  padding: 10px 15px;
+  background: #EEEEEE;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 110px;
+  width: 90px;
+
+}
