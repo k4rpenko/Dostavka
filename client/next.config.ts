@@ -1,8 +1,8 @@
-import type { NextConfig } from "next";
 require('dotenv').config();
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
 
 };
 
-export default nextConfig;
+module.exports = nextConfig;
