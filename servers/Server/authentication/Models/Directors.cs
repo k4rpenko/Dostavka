@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,53 +9,50 @@ namespace authentication.Models
     {
         public Directors()
         {
+            Id = Guid.NewGuid().ToString();
             ConcurrencyStamp = Guid.NewGuid().ToString();
         }
 
         [Key]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; }
 
         [Required]
+        [MaxLength(255)]
         public string IdCompany { get; set; }
 
-        public List<string>? IDLastCompany { get; set; } = new();
-
-        [Required]
-        public string FullName { get; set; }
+        [MaxLength(255)]
+        public string? FullName { get; set; }
 
         [Required, EmailAddress]
+        [MaxLength(255)]
         public string Email { get; set; }
 
-        public bool? EmailConfirmation { get; set; }
+        public bool EmailConfirmation { get; set; } = false;
 
         [Required]
+        [MaxLength(255)]
         public string HashPassword { get; set; }
 
         [Required, Phone]
+        [MaxLength(20)]
         public string PhoneNumber { get; set; }
 
-        public bool? PhoneNumberConfirmation { get; set; }
+        public bool PhoneNumberConfirmation { get; set; } = false;
 
+        [MaxLength(500)]
         public string? Location { get; set; }
 
-        public string Avatar { get; set; }
+        [MaxLength(500)]
+        public string? Avatar { get; set; }
 
-        public int? SuccessfulTransportation { get; set; }
+        public HashSet<string> TruckId { get; set; } = new();
+        public HashSet<string> TransportationId { get; set; } = new();
+        public HashSet<string> WorkersId { get; set; } = new();
 
-        public List<string>? TruckId { get; set; } = new();
-
-        public List<string>? TransportationId { get; set; } = new();
-
-        public List<string>? WorkersId { get; set; } = new();
-
-        public List<string>? EmployeeKeys { get; set; } = new();
-
-        public List<string>? EmployeeBusKeys { get; set; } = new();
-
-        public List<string>? EmployeeUsageKeys { get; set; } = new();
-
+        [MaxLength(500)]
         public string? RefreshToken { get; set; }
 
-        public string? ConcurrencyStamp { get; set; }
+        [MaxLength(255)]
+        public string ConcurrencyStamp { get; set; }
     }
 }
