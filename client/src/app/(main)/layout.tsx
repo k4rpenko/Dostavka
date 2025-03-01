@@ -22,7 +22,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 </svg>
               </a>
             </div>
-            <div className={styles.Text}><a href="">About us</a></div>
+            <div className={styles.Text}><a href="AboutDostavka">About us</a></div>
           </div>
           
           <div className={styles.center}>

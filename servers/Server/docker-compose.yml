@@ -1,0 +1,6 @@
+services:
+  main:
+    image: ${DOCKER_REGISTRY-}main
+    build:
+      context: .
+      dockerfile: main/Dockerfile

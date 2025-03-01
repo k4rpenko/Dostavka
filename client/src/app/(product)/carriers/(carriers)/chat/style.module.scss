@@ -1,0 +1,112 @@
+.appContainer {
+  display: flex;
+  width: 100%;
+  color: var(--text-color-white);
+  font-family: var(--font-sfpro-regular);
+}
+
+
+
+.main{
+  display: flex;
+  width: 100%;
+}
+
+
+.headerUserChat{
+  height: 170px;
+  display: flex;
+  border-bottom: 1px solid var(--grey-light-80);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headerUserTitle{
+  display: flex;
+  height: auto;
+  padding: 15px;
+  justify-content: space-between;
+
+  h1{
+    color: var(--grey);
+  }
+}
+
+.headerUserFindUser{
+  display: flex;
+
+  svg{
+    margin-left: 1px;
+  }
+
+  a {
+    cursor: pointer;
+    display: flex;
+    height: 35px;
+    width: 35px;
+    border-radius: 100px;
+    background-color: var(--blue);
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+
+    &:hover{
+      background-color: var(--blue-dark-80);
+    }
+  }
+}
+
+.headerUserInput{
+  display: flex;
+  padding: 15px;
+}
+
+.headerUserInputItem{
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+  svg{
+    position: absolute;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    fill: var(--grey-light);
+    pointer-events: none;
+    path{
+      fill: var(--grey-light);
+    }
+  }
+
+  input{
+    padding: 5px 5px 5px 60px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid var(--grey-light-80);
+    border-radius: 10px;
+    width: 100%;
+    color: var(--text-color-dark);
+    font-size: 15px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-family: var(--font-sfpro-regular);
+
+    &:focus {
+      border-color: var(--blue);
+      background-color: var(--input-focus-bg);
+      outline: none;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+  }
+}
+
+.chatUserBox {
+  display: flex;
+  border-right: 1px solid var(--grey-light-80);
+  width: 40%;
+  flex-direction: column;
+}
+
+
+
+
