@@ -16,7 +16,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       try {
         const workerCache = await cacheService.getItem('Worker')
         if(workerCache == null){
-          const response = await axios.get("https://localhost:51419/api/workers/set-cookie/shippers", {
+          const response = await axios.get("http://localhost/api/redirect/job", {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
           });
@@ -27,7 +27,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               await responseDATA();
             }
             window.location.href = response.data.redirectUrl;
-            return;
           }
         }
         else if(workerCache.RoleWork === "carriers"){
@@ -42,8 +41,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
     const responseDATA = async () => {
       try {
-        console.log('Upate');
-        const responseDATA = await axios.get("https://localhost:7086/api/workers/data", {
+        const responseDATA = await axios.get("http://localhost/api/workers/data", {
           withCredentials: true,
           headers: { "Content-Type": "application/json" },
         });

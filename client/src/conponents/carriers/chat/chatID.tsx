@@ -38,8 +38,10 @@ export default function ChatID({ MessagerSet }: { MessagerSet: (chat: Chats | nu
     
 
     useEffect(() => {
+        let isMounted = true;
+
         const addUserChat = async () => {
-            const response = await axios.get("https://localhost:7086/api/message/AllChats", {
+            const response = await axios.get("http://localhost/api/message/AllChats", {
                 withCredentials: true,
                 headers: { "Content-Type": "application/json" },
             });
@@ -51,9 +53,40 @@ export default function ChatID({ MessagerSet }: { MessagerSet: (chat: Chats | nu
             }
         }
 
-        if (typeof window !== 'undefined') {
-            addUserChat();
-        }
+
+        const pollServer = async () => {
+            try {
+                const response = await axios.get("http://localhost/api/message/LongPoll", { withCredentials: true });
+
+                if (response.status === 200) {
+                    const parsedData: Chats = response.data.chats;
+                    setChatModel(prevChats => {
+                        const existingChatIndex = prevChats.findIndex(chat => chat.chat.id === parsedData.chat.id);
+                        if (existingChatIndex !== -1) {
+                            const updatedChats = [...prevChats];
+                            updatedChats[existingChatIndex] = { ...prevChats[existingChatIndex], ...parsedData };
+                            return updatedChats;
+                        } else {
+                            return [...prevChats, parsedData];
+                        }
+                    });
+                    
+                    MessagerSet(prevChat => {
+                        if (prevChat && prevChat.chat.id === parsedData.chat.id) {
+                            return parsedData;
+                        }
+                        return prevChat;
+                    });
+                }
+            } catch (error) {
+                console.error("Помилка при отриманні даних", error);
+            } finally {
+                setTimeout(pollServer, 100);
+            }
+        };
+
+        addUserChat();
+        pollServer();
     }, []);
 
     return(
@@ -67,10 +100,10 @@ export default function ChatID({ MessagerSet }: { MessagerSet: (chat: Chats | nu
                         <div className={styles.chatText}>
                             <div className={styles.chatUserInfo}>
                                 <span>{user.worker.fullName}</span>
-                                <span className={styles.chatUserTime}>{user.chat && user.chat.messages?.length > 0 ? timeAgo(user.chat[user.chat.messages?.length - 1].createdAt) : ''}</span>
+                                <span className={styles.chatUserTime}>{user.chat && user.chat.messages?.length > 0 ? timeAgo(user.chat.messages[user.chat.messages?.length - 1].createdAt) : ''}</span>
                             </div>
                             <div className={styles.chatMessageItem}>
-                                <samp>{user.chat && user.chat.messages?.length > 0 ? user.chat[user.chat.messages?.length - 1].text : 'no messages'}</samp>
+                                <samp>{user.chat && user.chat.messages?.length > 0 ? user.chat.messages[user.chat.messages?.length - 1].text : 'no messages'}</samp>
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,9 @@
 import ChatID from '@/conponents/carriers/chat/chatID';
 import styles from './style.module.scss';
 import Messager from '@/conponents/carriers/chat/Messager';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Chats } from '@/data/Module/Chats';
+import axios from 'axios';
 
 export default function Chat() {
     const [chatData, setChatData] = useState<Chats | null>(null);

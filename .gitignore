@@ -17,3 +17,5 @@
 /servers/Server/MongoDB/bin
 /servers/Server/PgAdmin/bin
 client/.env
+/servers/Server/bin
+/servers/Server/obj

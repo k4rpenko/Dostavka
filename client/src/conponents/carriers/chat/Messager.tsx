@@ -5,7 +5,7 @@ import axios from "axios";
 import { Chats } from '@/data/Module/Chats';
 
 export default function Messager({ MessagerGet }: { MessagerGet: Chats | null }) {
-
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
 
@@ -39,6 +39,28 @@ export default function Messager({ MessagerGet }: { MessagerGet: Chats | null })
             return `щойно`;
         }
     };
+
+    const SendMessage = async (event) => {
+        event.preventDefault();
+        if (!message.trim()) return;
+        try {
+            var url = "http://localhost/api/message/" + MessagerGet?.chat.id;
+            const response = await axios.put(
+                url, 
+                { text: message },
+                {
+                  withCredentials: true,
+                  headers: { "Content-Type": "application/json" },
+                }
+              );
+            if (response.status !== 200) throw new Error("Failed to send message");
+            
+
+            setMessage("");
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
 
 
     if (MessagerGet === null) {
@@ -84,9 +106,9 @@ export default function Messager({ MessagerGet }: { MessagerGet: Chats | null })
             )}
         </div>
         <div className={styles.chatInputBox}>
-            <div className={styles.chatInput}>
-                <input type="text" placeholder="Type a message..."/>
-                <button className={styles.chatButton}>
+            <form className={styles.chatInput} onSubmit={SendMessage}>
+                <input type="text" placeholder="Type a message..." value={message} onChange={(e) => setMessage(e.target.value)}/>
+                <button className={styles.chatButton} type="submit">
                     <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                          xmlns="http://www.w3.org/2000/svg" transform="rotate(-45)">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
@@ -99,7 +121,7 @@ export default function Messager({ MessagerGet }: { MessagerGet: Chats | null })
                         </g>
                     </svg>
                 </button>
-            </div>
+            </form>
         </div>
     </div>
     );

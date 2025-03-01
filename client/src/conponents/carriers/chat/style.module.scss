@@ -352,6 +352,7 @@
 }
 
 .chatMessagesContainer{
+  max-height: 100vh;
   width: 100%;
   border-right: 1px solid var(--grey-light-80);
   display: flex;
@@ -414,6 +415,8 @@
 }
 
 .chatMessages {
+  overflow-y: auto;
+  max-height: 100%;
   flex: 1;
   padding: 10px;
   display: flex;
