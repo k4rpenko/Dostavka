@@ -1,9 +1,9 @@
+using Hash.Interface;
 using Microsoft.AspNetCore.Mvc;
-using authentication.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
+using PgAdmin;
+using PgAdmin.Model;
 using System.Threading.Tasks;
-using BCrypt.Net;
 
 namespace authentication.Controllers
 {
@@ -12,45 +12,28 @@ namespace authentication.Controllers
     public class WorkersController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IArgon2Hasher _hasher;
 
-        public WorkersController(AppDbContext context)
+        public WorkersController(AppDbContext context, IArgon2Hasher hasher)
         {
             _context = context;
+            _hasher = hasher;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] Worker model)
+        public async Task<IActionResult> RegisterWorker([FromBody] Workers worker)
         {
-            if (!ModelState.IsValid)
+            if (await _context.Workers.AnyAsync(w => w.Email == worker.Email))
             {
-                return BadRequest(ModelState);
+                return Conflict(new { message = "Email is already in use." });
             }
 
-            if (await _context.Workers.AnyAsync(w => w.Email == model.Email))
-            {
-                return BadRequest(new { message = "Email is already in use." });
-            }
+            worker.HashPassword = _hasher.Encrypt(worker.HashPassword, "SALT_VALUE");
 
-            var director = await _context.Directors.FirstOrDefaultAsync(d => d.EmployeeKeys.Contains(model.CompanyKey));
-            if (director == null)
-            {
-                return BadRequest(new { message = "Invalid company key." });
-            }
+            _context.Workers.Add(worker);
+            await _context.SaveChangesAsync();
 
-            model.IdCompany = director.IdCompany;
-            model.HashPassword = BCrypt.Net.BCrypt.HashPassword(model.HashPassword);
-
-            try
-            {
-                _context.Workers.Add(model);
-                await _context.SaveChangesAsync();
-
-                return Ok(new { message = "Worker registered successfully!" });
-            }
-            catch
-            {
-                return StatusCode(500, new { message = "An error occurred while registering the worker." });
-            }
+            return Ok(new { message = "Registration successful." });
         }
     }
 }
