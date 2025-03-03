@@ -6,6 +6,7 @@ using MongoDB;
 using Hash;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Rewrite;
+using main.Modules;
 
 namespace main.Controllers
 {
@@ -14,50 +15,55 @@ namespace main.Controllers
     public class directors : Controller
     {
         private readonly AppDbContext context;
-        private readonly IJwt _jwt;
+        private readonly IJwt _jwt; 
+        private readonly IRSAHash _key;
 
-        public directors(IJwt jwt, AppDbContext _context)
+        public directors(IJwt jwt, IRSAHash key, AppDbContext _context)
         {
             context = _context;
             _jwt = jwt;
+            _key = key;
         }
 
-        [HttpGet("job")]
-        public async Task<IActionResult> job()
+        [HttpGet("Key")]
+        public async Task<IActionResult> KreatKey()
         {
             if (!Request.Cookies.TryGetValue("_AT", out string cookieValue))
             {
-                return Ok(new { redirectUrl = "http://localhost:3000/home" });
+                return Unauthorized();
             }
-            if (!_jwt.ValidateToken(cookieValue, context))
-            {
-                return Ok(new { redirectUrl = "http://localhost:3000/login/worker" });
-            }
-
             var id = _jwt.GetUserIdFromToken(cookieValue);
-            var worker = await context.Workers.FirstOrDefaultAsync(u => u.Id == id);
-            if(worker == null)
+            var Directors = await context.Directors.FirstOrDefaultAsync(u => u.Id == id);
+            if(Directors == null) { return Unauthorized(); }
+
+            var key = _key.GeneratePublicKeys();
+            Directors.EmployeeKeys.Add(key); 
+
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpPut("dismiss")]
+        public async Task<IActionResult> dismissWorker(WorkerData data)
+        {
+            if (!Request.Cookies.TryGetValue("_AT", out string cookieValue))
             {
-                var director = await context.Directors.FirstOrDefaultAsync(u => u.Id == id);
-                if(director == null)
-                {
-                    return NotFound();
-                }
-                return Ok(new { redirectUrl = "http://localhost:3000/login/worker" });
+                return Unauthorized();
             }
-            var Company = await context.Companys.FirstOrDefaultAsync(u => u.Id == worker.idCompany);
-            if(Company.RoleWork == "7")
-            {
-                return Ok(new { redirectUrl = "http://localhost:3000/shippers" });
-            }
-            else if (Company.RoleWork == "6")
-            {
-                return Ok(new { redirectUrl = "http://localhost:3000/carriers" });
-            }
-            else
-            {
-                return NotFound();
-            }
+            var id = _jwt.GetUserIdFromToken(cookieValue);
+            var Directors = await context.Directors.FirstOrDefaultAsync(u => u.Id == id);
+            if (Directors == null) { return Unauthorized(); }
+            var user = Directors.WorkersId.FirstOrDefault(u => u == data.Id);
+            if (user == null) { return NotFound(); }
+
+            var userDATA = await context.Workers.FirstOrDefaultAsync(u => u.Id == user);
+
+            userDATA.idCompany = "";
+            userDATA.IDLastCompany.Add(Directors.IdCompany);
+            Directors.WorkersId.Remove(user);
+            
+            await context.SaveChangesAsync();
+            return Ok();
         }
     }
 }
