@@ -6,17 +6,17 @@ import { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 
 const UsersJSON = [
-  { id: 1, UserName: "Петренко Іван Олександрович", Email: "ivan.petrenko@gmail.com", PhoneNumber: "0674827315", Role: "Junior Logist", Rating: 5 },
-  { id: 2, UserName: "Сидоренко Ольга Михайлівна", Email: "olga.sydorenko@gmail.com", PhoneNumber: "0683214567", Role: "Middle Logist", Rating: 4 },
-  { id: 3, UserName: "Коваленко Андрій Сергійович", Email: "andriy.kovalenko@gmail.com", PhoneNumber: "0639876543", Role: "Senior Logist", Rating: 5 },
-  { id: 4, UserName: "Мельник Тетяна Василівна", Email: "t.melnyk@gmail.com", PhoneNumber: "0636676543", Role: "Dispatcher", Rating: 4 },
-  { id: 5, UserName: "Гончаренко Максим Віталійович", Email: "max.goncharenko@gmail.com", PhoneNumber: "0683214587", Role: "Manager", Rating: 5 }
+  { id: 1, UserName: "Петренко Іван Олександрович", Email: "ivan.petrenko@gmail.com", PhoneNumber: "0674827315", Role: "Junior Logist", Rating: 5, Transportation: 20},
+  { id: 2, UserName: "Сидоренко Ольга Михайлівна", Email: "olga.sydorenko@gmail.com", PhoneNumber: "0683214567", Role: "Middle Logist", Rating: 4, Transportation: 13 },
+  { id: 3, UserName: "Коваленко Андрій Сергійович", Email: "andriy.kovalenko@gmail.com", PhoneNumber: "0639876543", Role: "Senior Logist", Rating: 5, Transportation: 10 },
+  { id: 4, UserName: "Мельник Тетяна Василівна", Email: "t.melnyk@gmail.com", PhoneNumber: "0636676543", Role: "Dispatcher", Rating: 4, Transportation: 2 },
+  { id: 5, UserName: "Гончаренко Максим Віталійович", Email: "max.goncharenko@gmail.com", PhoneNumber: "0683214587", Role: "Manager", Rating: 5, Transportation: 17 }
 ];
 const truckJSON = [
   { id: 1, CarNumber: "AH1057DN", status: 1, country: "Ukraine", Car: 4 },
   { id: 2, CarNumber: "HT1089JH", status: 0, country: "Slovakian", Car: 1 },
   { id: 3, CarNumber: "UT1769GH", status: 0, country: "Slovakian", Car: 3 },
-  { id: 4, CarNumber: "AI7857ON", status: 1, country: "Ukraine", Car: 4 },
+  { id: 4, CarNumber: "AI7857ON", status: 1, country: "Ukraine", Car: 2 },
 
 
 ];
@@ -69,7 +69,11 @@ export default function WorkerDetails() {
         </div>
         <h3 className={styles.name}>{user.UserName}</h3>
         <span className={styles.role}>{user.Role}</span>
-        <div className={styles.rating}>
+        <div className={styles.info}>
+
+        <div className={styles.info2}>
+        <div className={styles.item2}>
+
             <svg width="69" height="20" viewBox="0 0 57 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 0L6.02963 2.60796L9 3.24671L6.975 5.49727L7.28115 8.5L4.5 7.28296L1.71885 8.5L2.025 5.49727L0 3.24671L2.97037 2.60796L4.5 0Z" fill="#FFCB45"/>
                 <path d="M16.5 0L18.0296 2.60796L21 3.24671L18.975 5.49727L19.2812 8.5L16.5 7.28296L13.7188 8.5L14.025 5.49727L12 3.24671L14.9704 2.60796L16.5 0Z" fill="#FFCB45"/>
@@ -77,6 +81,16 @@ export default function WorkerDetails() {
                 <path d="M40.5 0L42.0296 2.60796L45 3.24671L42.975 5.49727L43.2812 8.5L40.5 7.28296L37.7188 8.5L38.025 5.49727L36 3.24671L38.9704 2.60796L40.5 0Z" fill="#FFCB45"/>
                 <path d="M52.5 0L54.0296 2.60796L57 3.24671L54.975 5.49727L55.2812 8.5L52.5 7.28296L49.7188 8.5L50.025 5.49727L48 3.24671L50.9704 2.60796L52.5 0Z" fill="#F2F2F2"/>
             </svg>
+            <span>{user.Rating}</span>
+            </div>
+            <div className={styles.item2}>
+
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.8333 6.375C18.1096 6.375 18.3746 6.26525 18.5699 6.0699C18.7653 5.87455 18.875 5.6096 18.875 5.33333V1.16667C18.875 0.890399 18.7653 0.625447 18.5699 0.430097C18.3746 0.234747 18.1096 0.125 17.8333 0.125H13.6667C13.3904 0.125 13.1254 0.234747 12.9301 0.430097C12.7347 0.625447 12.625 0.890399 12.625 1.16667V2.20833H6.375V1.16667C6.375 0.890399 6.26525 0.625447 6.0699 0.430097C5.87455 0.234747 5.6096 0.125 5.33333 0.125H1.16667C0.890399 0.125 0.625447 0.234747 0.430097 0.430097C0.234747 0.625447 0.125 0.890399 0.125 1.16667V5.33333C0.125 5.6096 0.234747 5.87455 0.430097 6.0699C0.625447 6.26525 0.890399 6.375 1.16667 6.375H2.20833V12.625H1.16667C0.890399 12.625 0.625447 12.7347 0.430097 12.9301C0.234747 13.1254 0.125 13.3904 0.125 13.6667V17.8333C0.125 18.1096 0.234747 18.3746 0.430097 18.5699C0.625447 18.7653 0.890399 18.875 1.16667 18.875H5.33333C5.6096 18.875 5.87455 18.7653 6.0699 18.5699C6.26525 18.3746 6.375 18.1096 6.375 17.8333V16.7917H12.625V17.8333C12.625 18.1096 12.7347 18.3746 12.9301 18.5699C13.1254 18.7653 13.3904 18.875 13.6667 18.875H17.8333C18.1096 18.875 18.3746 18.7653 18.5699 18.5699C18.7653 18.3746 18.875 18.1096 18.875 17.8333V13.6667C18.875 13.3904 18.7653 13.1254 18.5699 12.9301C18.3746 12.7347 18.1096 12.625 17.8333 12.625H16.7917V6.375H17.8333ZM14.7083 12.625H13.6667C13.3904 12.625 13.1254 12.7347 12.9301 12.9301C12.7347 13.1254 12.625 13.3904 12.625 13.6667V14.7083H6.375V13.6667C6.375 13.3904 6.26525 13.1254 6.0699 12.9301C5.87455 12.7347 5.6096 12.625 5.33333 12.625H4.29167V6.375H5.33333C5.6096 6.375 5.87455 6.26525 6.0699 6.0699C6.26525 5.87455 6.375 5.6096 6.375 5.33333V4.29167H12.625V5.33333C12.625 5.6096 12.7347 5.87455 12.9301 6.0699C13.1254 6.26525 13.3904 6.375 13.6667 6.375H14.7083V12.625Z" fill="#6F6F73"/>
+            </svg>
+            <span>{user.Transportation}</span>
+            </div>
+        </div>
         </div>        
         <div className={styles.info}>
         <div className={styles.item}>
