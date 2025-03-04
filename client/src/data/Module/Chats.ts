@@ -23,11 +23,23 @@ export interface CompanyModel {
     id: string;
     title?: string;
     idDirector: string;
+    description: string;
+    background: string;
     phoneNumber: string;
+    transportationNumber: number;
     email: string;
     avatar: string;
     rating?: number;
     reviewsNumbers?: number;
+    posts?: PostModel[];
+}
+
+export interface PostModel {
+    id: string;
+    image?: string;
+    text?: string;
+    idCompany: string;
+    creatAt: string;
 }
 
 export interface WorkerModel {

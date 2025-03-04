@@ -1,7 +1,19 @@
 .appContainer {
-  margin-top: 10px;
-  padding: 0px 25px;
+  margin-top: 50px;
+  display: flex;
   flex-direction: column;
+}
+
+.NotFound{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+  h2{
+    font-family: var(--font-sfpro-medium);
+    color: var(--text-color-dark);
+  }
 }
 
 .profileContainer {
@@ -10,7 +22,6 @@
   border-radius: var(--border-radius);
   overflow: hidden;
   position: relative;
-  padding-top: 3%;
   font-family: var(--font-sfpro-regular);
 }
 
@@ -70,7 +81,7 @@
 .tabs {
   display: flex;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 70px;
   gap: 190px;
 }
 

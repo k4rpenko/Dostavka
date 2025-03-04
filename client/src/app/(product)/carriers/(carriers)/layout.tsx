@@ -3,14 +3,13 @@ import Header from "@/conponents/carriers/Header/header";
 import { useEffect, useState } from "react";
 import styles from './style.module.scss';
 import axios from "axios";
-import Cookies from "js-cookie";
 import { MemoryCacheService } from "@/data/Cache/MemoryCacheService";
 import { DecryptAES } from "@/data/Hash/AES-256-GCM/AES";
 import { WorkerData } from "@/data/Module/WorkerData";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const cacheService = new MemoryCacheService();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchJob = async () => {

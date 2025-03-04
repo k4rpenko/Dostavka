@@ -19,3 +19,4 @@
 client/.env
 /servers/Server/bin
 /servers/Server/obj
+/servers/Server/PgAdmin/Migrations

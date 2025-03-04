@@ -4,6 +4,7 @@ using main.Modules.Chat;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PgAdmin.Model;
+using System.Text.RegularExpressions;
 
 namespace main.Controllers
 {
@@ -23,18 +24,36 @@ namespace main.Controllers
         [HttpGet("Company/{NAME}")]
         public async Task<IActionResult> GetCompany(string NAME)
         {
-            var company = await context.Companys.FirstOrDefaultAsync(u => u.Title.ToLower() == NAME.ToLower()); 
+            var companies = await context.Companys.ToListAsync();
+
+            var cleanName = Regex.Replace(NAME, @"[^a-zA-Zа-яА-Я0-9]", "").ToLower();
+
+            var company = companies.FirstOrDefault(u => Regex.Replace(u.Title, @"[^a-zA-Zа-яА-Я0-9]", "").ToLower() == cleanName);
 
             if (company == null) { return NotFound(); }
+            var postrsData = await context.Posts.FirstOrDefaultAsync(u => u.IdCompany == company.Id);
             var data = new CompanysModel
             {
                 Id = company.Id,
                 Title = company.Title,
                 PhoneNumber = company.PhoneNumber,
+                background = company.background,
+                description = company.description,
                 email = company.email,
                 Avatar = company.Avatar,
+                TransportationNumber = company.TransportationNumber,
                 Rating = company.Rating,
                 ReviewsNumbers = company.ReviewsNumbers,
+                Posts = new List<Posts> 
+                {
+                    new Posts
+                    {
+                        Id = postrsData.Id,
+                        Text = postrsData.Text,
+                        Image = postrsData.Image,
+                        CreatAt = postrsData.CreatAt
+                    }
+                }
             };
             
 
@@ -42,3 +61,4 @@ namespace main.Controllers
         }
     }
 }
+

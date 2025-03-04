@@ -350,6 +350,12 @@ namespace PgAdmin.Migrations
                     b.Property<int?>("WorkersNumber")
                         .HasColumnType("integer");
 
+                    b.Property<string>("background")
+                        .HasColumnType("text");
+
+                    b.Property<string>("description")
+                        .HasColumnType("text");
+
                     b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("text");
@@ -449,11 +455,9 @@ namespace PgAdmin.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Text")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
