@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace PgAdmin.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250225221252_Dostavka")]
+    [Migration("20250304122204_Dostavka")]
     partial class Dostavka
     {
         /// <inheritdoc />
@@ -317,6 +317,9 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<List<string>>("PostId")
+                        .HasColumnType("text[]");
+
                     b.Property<double?>("Rating")
                         .HasColumnType("double precision");
 
@@ -434,6 +437,31 @@ namespace PgAdmin.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Directors");
+                });
+
+            modelBuilder.Entity("PgAdmin.Model.Posts", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("IdCompany")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("PgAdmin.Model.Workers", b =>

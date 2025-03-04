@@ -45,7 +45,7 @@ namespace main.Modules.Chat
         public string email { get; set; }
         public string Avatar { get; set; }
         public double? Rating { get; set; }
-        public int? ReviewsNumbers { get; private set; }
+        public int? ReviewsNumbers { get; set; }
     }
 
     public class WorkerModel
@@ -56,5 +56,13 @@ namespace main.Modules.Chat
         public string Email { get; set; }
         public string Avatar { get; set; }
     }
-    
+
+    public class DirectorModel
+    {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string? FullName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string Avatar { get; set; }
+    }
 }

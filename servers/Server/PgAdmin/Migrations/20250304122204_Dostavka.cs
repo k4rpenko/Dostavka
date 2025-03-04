@@ -71,6 +71,7 @@ namespace PgAdmin.Migrations
                     TransportationNumber = table.Column<int>(type: "integer", nullable: true),
                     SuccessfulTransportation = table.Column<int>(type: "integer", nullable: true),
                     TransportationOnline = table.Column<string>(type: "text", nullable: true),
+                    PostId = table.Column<List<string>>(type: "text[]", nullable: true),
                     Rating = table.Column<double>(type: "double precision", nullable: true),
                     RoleWork = table.Column<string>(type: "text", nullable: true),
                     ReviewsId = table.Column<List<string>>(type: "text[]", nullable: true),
@@ -110,6 +111,21 @@ namespace PgAdmin.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Directors", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Posts",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    Image = table.Column<string>(type: "text", nullable: false),
+                    Text = table.Column<string>(type: "text", nullable: false),
+                    IdCompany = table.Column<string>(type: "text", nullable: false),
+                    CreatAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Posts", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -248,6 +264,9 @@ namespace PgAdmin.Migrations
 
             migrationBuilder.DropTable(
                 name: "Directors");
+
+            migrationBuilder.DropTable(
+                name: "Posts");
 
             migrationBuilder.DropTable(
                 name: "Reviews");

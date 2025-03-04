@@ -26,6 +26,7 @@ namespace PgAdmin.Model
         public int? TransportationNumber { get; set; }
         public int? SuccessfulTransportation { get; set; }
         public string? TransportationOnline { get; set; }
+        public List<string>? PostId { get; set; } = new();
         public double? Rating { get; set; }
         public string? RoleWork { get; set; }
         private List<string>? reviewsId = new List<string>();
