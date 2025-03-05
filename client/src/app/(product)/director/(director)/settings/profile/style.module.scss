@@ -1,0 +1,80 @@
+
+.container {
+  width: 100%;
+  font-family: var(--font-sfpro-regular);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  background: #f1f1f1;
+  padding: 10px;
+}
+
+.avatarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 0px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ddd;
+  margin-top:-20px;  
+
+}
+
+.cameraIcon {
+  background: #E7E7E7;
+  border-radius: 50%;
+  padding: 6px; 
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -20px;
+  margin-top: 30px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px auto;
+  margin-left: 45px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 40%;
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 350px;
+    margin-top: -15px;
+  }
+}
+
+
+
+
+.button {
+  background: #0d5033;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  width: 30%;
+}
