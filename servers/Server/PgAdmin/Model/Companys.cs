@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,8 +41,12 @@ namespace PgAdmin.Model
         }
 
         public int? ReviewsNumbers { get; private set; }
-        public object Name { get; internal set; }
+        [NotMapped]
+        public object Name { get; set; }
+
+        [NotMapped]
         public object Address { get; internal set; }
-        public object Phone { get; internal set; }
+        [NotMapped]
+        public object Phone { get; set; }
     }
 }

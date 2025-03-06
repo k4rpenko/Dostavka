@@ -7,7 +7,7 @@ namespace main.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class companies : Controller
+    public class companies : ControllerBase
     {
         private readonly AppDbContext _context;
 
@@ -19,33 +19,47 @@ namespace main.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllCompanies()
         {
-            var companies = await _context.Companys
-                .Where(c => c.Role == "7") 
-                .Select(c => new {
-                    c.Id,
-                    c.Title,
-                    c.Avatar,
-                    c.Rating,
-                    c.WorkersNumber,
-                    c.TransportationNumber,
-                    c.SuccessfulTransportation,
-                    c.email,
-                    c.PhoneNumber
-                })
-                .ToListAsync();
+            try
+            {
+                var companies = await _context.Companys
+                    .Where(c => c.Role == "7")
+                    .Select(c => new {
+                        c.Id,
+                        c.Title,
+                        c.Avatar,
+                        c.Rating,
+                        c.WorkersNumber,
+                        c.TransportationNumber,
+                        c.SuccessfulTransportation,
+                        c.email,
+                        c.PhoneNumber
+                    })
+                    .ToListAsync();
 
-            return Ok(companies);
+                return Ok(companies);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCompanyById(string id)
         {
-            var company = await _context.Companys.FindAsync(id);
-            if (company == null)
+            try
             {
-                return NotFound();
+                var company = await _context.Companys.FindAsync(id);
+                if (company == null)
+                {
+                    return NotFound();
+                }
+                return Ok(company);
             }
-            return Ok(company);
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }

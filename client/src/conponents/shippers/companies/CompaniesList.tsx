@@ -22,7 +22,7 @@ const CompaniesList = () => {
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const response = await fetch('/api/companies');
+        const response = await fetch('https://localhost:51102/api/companies');
         if (!response.ok) {
           throw new Error('Помилка завантаження даних');
         }

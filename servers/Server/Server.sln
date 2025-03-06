@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash", "Hash\Hash.csproj", "{D8F45C68-E296-A9E4-6804-935D1AE9D04B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hash", "Hash\Hash.csproj", "{D8F45C68-E296-A9E4-6804-935D1AE9D04B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PgAdmin", "PgAdmin\PgAdmin.csproj", "{C3747605-5559-5877-4D36-A81BAE24014D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PgAdmin", "PgAdmin\PgAdmin.csproj", "{C3747605-5559-5877-4D36-A81BAE24014D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDB", "MongoDB\MongoDB.csproj", "{48D49BBA-29D1-05A9-76A3-7CC98206A567}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDB", "MongoDB\MongoDB.csproj", "{48D49BBA-29D1-05A9-76A3-7CC98206A567}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "main", "main\main.csproj", "{B1A8830F-D088-4F25-BBFF-479B152D157D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "main", "main\main.csproj", "{B1A8830F-D088-4F25-BBFF-479B152D157D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
