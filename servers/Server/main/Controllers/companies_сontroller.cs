@@ -36,7 +36,7 @@ namespace main.Controllers
                     })
                     .ToListAsync();
 
-                return Ok(companies);
+                return Ok(new { DATA = companies });
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace main.Controllers
         {
             try
             {
-                var company = await _context.Companys.FindAsync(id);
+                var company = await _context.Companys.FirstOrDefaultAsync(c => c.Id == id);
                 if (company == null)
                 {
                     return NotFound();
