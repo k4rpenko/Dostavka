@@ -1,8 +1,7 @@
-"use client";
-import React from 'react';
-import styles from '../style.module.scss';
+import React from "react";
+import styles from "./style.module.scss";
 
-function CompaniesList() {
+export default function Companies() {
     return (
         <div className={styles.container}>
             <h1 className={styles.heading}>Companies</h1>
@@ -121,12 +120,4 @@ function CompaniesList() {
       
     </div>
     );
-}
-
-export default function CompaniesPage() {
-  return (
-    <div className={styles.pageContainer}>
-      <CompaniesList />
-    </div>
-  );
 }
