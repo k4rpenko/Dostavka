@@ -65,5 +65,36 @@ namespace main.Controllers
             await context.SaveChangesAsync();
             return Ok();
         }
+        [HttpGet("workers")]
+        public async Task<IActionResult> GetUsers()
+        {
+            if (!Request.Cookies.TryGetValue("_AT", out string cookieValue))
+            {
+                return Unauthorized();
+            }
+
+            var id = _jwt.GetUserIdFromToken(cookieValue);
+            var director = await context.Directors.FirstOrDefaultAsync(u => u.Id == id);
+            if (director == null)
+            {
+                return Unauthorized();
+            }
+
+            var users = await context.Workers
+                .Where(w => director.WorkersId.Contains(w.Id))
+                .Select((w, index) => new
+                {
+                    id = index + 1, 
+                    UserName = w.FullName,
+                    Email = w.Email,
+                    PhoneNumber = w.PhoneNumber,
+                    Role = w.Role, 
+                    Rating = w.Rating
+                })
+                .ToListAsync();
+
+            return Ok(users);
+        }
+
     }
 }
