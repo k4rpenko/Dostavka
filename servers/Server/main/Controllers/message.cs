@@ -8,6 +8,8 @@ using MongoDB;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using main.Models.MessageChat;
+using PgAdmin.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace main.Controllers
 {
@@ -26,34 +28,91 @@ namespace main.Controllers
             _jwt = jwt;
         }
 
-        [HttpGet("{chatID}")]
-        public async Task<IActionResult> LongPoll(string chatID, CancellationToken cancellationToken)
+        [HttpGet("LongPoll")]
+        public async Task<IActionResult> LongPoll(CancellationToken cancellationToken)
         {
-            DateTime lastCheckTime = DateTime.UtcNow;
-            TimeSpan timeout = TimeSpan.FromSeconds(30);
-            DateTime endTime = DateTime.UtcNow.Add(timeout);
             if (!Request.Cookies.TryGetValue("_AT", out string cookieValue))
             {
                 return Unauthorized();
             }
-            var id = new JWT().GetUserIdFromToken(cookieValue);
-            var objectId = ObjectId.Parse(chatID.ToString());
+
+            DateTime lastCheckTime = DateTime.UtcNow;
+            TimeSpan timeout = TimeSpan.FromSeconds(30);
+            DateTime endTime = DateTime.UtcNow.Add(timeout);
+
+            var id = _jwt.GetUserIdFromToken(cookieValue);
+            var worker = await context.Workers
+                .FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
+
+            if (worker == null || worker.ChatsId == null || worker.ChatsId.Count == 0)
+            {
+                return NoContent();
+            }
+
+            var chatIds = worker.ChatsId.Select(id => ObjectId.Parse(id)).ToList();
 
             while (DateTime.UtcNow < endTime)
             {
-                var newMessages = await _customers
-                    .Find(m => m.Id == objectId && m.Chat.Last().CreatedAt > lastCheckTime)
+                var updatedChats = await _customers
+                    .Find(m => chatIds.Contains(m.Id) && m.Chat.Any(c => c.CreatedAt > lastCheckTime))
                     .ToListAsync(cancellationToken);
 
-                if (newMessages.Count > 0)
+                if (updatedChats.Count > 0)
                 {
-                    return Ok(newMessages);
+                    var chatModel = updatedChats.FirstOrDefault();
+                    if (chatModel == null)
+                    {
+                        return NoContent();
+                    }
+                    var workerId = chatModel.UsersID.FirstOrDefault(u => u != id);
+                    var workerTwo = await context.Workers.FirstOrDefaultAsync(u => u.Id == (workerId ?? ""));
+                    var companyWorker = await context.Companys.FirstOrDefaultAsync(c => c.Id == worker.idCompany);
+
+                    var chatInfo = new GetChats
+                    {
+                        chat = new ChatModel
+                        {
+                            Id = chatModel.Id.ToString(),
+                            Messages = chatModel.Chat
+                            .TakeLast(100)
+                            .Select(m => new main.Modules.Chat.Message
+                            {
+                                Id = m.Id,
+                                IdUser = m.IdUser,
+                                Text = m.Text,
+                                Type = m.IdUser != id ? "incoming" : "outgoing",
+                                Img = m.Img,
+                                IdAnswer = m.IdAnswer,
+                                View = m.View,
+                                Send = m.Send,
+                                Chang = m.Chang,
+                                CreatedAt = m.CreatedAt,
+                                UpdatedAt = m.UpdatedAt
+                            }).ToList(),
+                        },
+                        companys = companyWorker != null ? new CompanysModel
+                        {
+                            Title = companyWorker.Title,
+                            Avatar = companyWorker.Avatar,
+                            Rating = companyWorker.Rating
+                        } : null,
+                        worker = workerTwo != null ? new WorkerModel
+                        {
+                            Id = workerTwo.Id,
+                            FullName = workerTwo.FullName,
+                            PhoneNumber = workerTwo.PhoneNumber,
+                            Email = workerTwo.Email,
+                            Avatar = workerTwo.Avatar
+                        } : null 
+                    };
+                    return Ok(new { Chats = chatInfo });
                 }
 
                 await Task.Delay(1000, cancellationToken);
             }
-            return NoContent(); 
+            return NoContent();
         }
+
 
         [HttpPut("Update/{chatID}")]
         public async Task<IActionResult> LongPoll(string chatID, ModuleJson Message, CancellationToken cancellationToken)
@@ -98,8 +157,10 @@ namespace main.Controllers
         }
 
         [HttpPut("{chatID}")]
-        public async Task<IActionResult> Send(string chatID, ModuleJson Message, CancellationToken cancellationToken)
+        public async Task<IActionResult> Send(string chatID, ModuleJson Message)
         {
+            if (Message.Text == null) { return NotFound("Message not found"); }
+            if (Message.Text.Length > 4096) { return StatusCode(400, "Message text exceeds Telegram's 4096 character limit."); }
             if (!Request.Cookies.TryGetValue("_AT", out string cookieValue))
             {
                 return Unauthorized();
@@ -120,7 +181,7 @@ namespace main.Controllers
             var newMessage = new Chats
             {
                 Id = chatID,
-                Message = new Message
+                Message = new Models.MessageChat.Message
                 {
                     Id = lastMessageId + 1,
                     IdUser = id,
@@ -149,7 +210,7 @@ namespace main.Controllers
         }
 
         [HttpPost("creat")]
-        public async Task<IActionResult> Creat(ModuleJson Message, CancellationToken cancellationToken)
+        public async Task<IActionResult> Creat(ModuleJson Message)
         {
             if (!Request.Cookies.TryGetValue("_AT", out string cookieValue))
             {
@@ -180,7 +241,7 @@ namespace main.Controllers
 
             var PeopleInfo = new Chats
             {
-                Message = new Message
+                Message = new Models.MessageChat.Message
                 {
                     IdUser = People.Id,
                     Text = "",
@@ -204,7 +265,7 @@ namespace main.Controllers
             var YouInfo = new Chats
             {
                 Id = newChat.UsersID.ToString(),
-                Message = new Message
+                Message = new Models.MessageChat.Message
                 {
                     IdUser = id,
                     Text = "",
@@ -221,5 +282,69 @@ namespace main.Controllers
             return Ok(new { PeopleInfo });
 
         }
+
+        [HttpGet("AllChats")]
+        public async Task<IActionResult> AllChats()
+        {
+            if (!Request.Cookies.TryGetValue("_AT", out string cookieValue)){ return Unauthorized(); }
+
+            var id = new JWT().GetUserIdFromToken(cookieValue);
+            var You = await context.Workers.FirstOrDefaultAsync(u => u.Id == id);
+            if (You == null) { return Unauthorized(); }
+
+            List<GetChats> DATA = new List<GetChats>();
+            foreach (var chat in You.ChatsId)
+            {
+                var objectId = ObjectId.Parse(chat.ToString());
+                var filter = Builders<ChatModelMongoDB>.Filter.Eq(chat => chat.Id, objectId);
+                var chatModel = await _customers.Find(filter).FirstOrDefaultAsync();
+
+                var workerId = chatModel.UsersID.FirstOrDefault(u => u != id);
+                var Worker = await context.Workers.FirstOrDefaultAsync(u => u.Id == workerId);
+                var CompanyWorker = await context.Companys.FirstOrDefaultAsync(u => u.Id == Worker.idCompany);
+
+                var chatInfo = new GetChats
+                {
+                    chat = new ChatModel
+                    {
+                        Id = chatModel.Id.ToString(),
+                        Messages = chatModel.Chat
+                            .TakeLast(100)
+                            .Select(m => new main.Modules.Chat.Message
+                            {
+                                Id = m.Id,
+                                IdUser = m.IdUser,
+                                Text = m.Text,
+                                Type = m.IdUser != id ? "incoming" : "outgoing",
+                                Img = m.Img,
+                                IdAnswer = m.IdAnswer,
+                                View = m.View,
+                                Send = m.Send,
+                                Chang = m.Chang,
+                                CreatedAt = m.CreatedAt,
+                                UpdatedAt = m.UpdatedAt
+                            }).ToList(),
+                    },
+                    companys = new CompanysModel
+                    {
+                        Title = CompanyWorker.Title,
+                        Avatar = CompanyWorker.Avatar,
+                        Rating = CompanyWorker.Rating
+                    },
+                    worker = new WorkerModel
+                    {
+                        Id = workerId,
+                        FullName = Worker.FullName,
+                        PhoneNumber = Worker.PhoneNumber,
+                        Email = Worker.Email,
+                        Avatar = Worker.Avatar
+                    }
+                };
+                DATA.Add(chatInfo);
+            }
+            return Ok(new {Chats = DATA});
+        }
+
     }
 }
+

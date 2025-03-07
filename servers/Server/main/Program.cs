@@ -2,24 +2,24 @@ using Hash;
 using Hash.Interface;
 using Microsoft.EntityFrameworkCore;
 using MongoDB;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetSection("Npgsql:ConnectionString").Value));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSignalR();
-builder.Services.AddSignalR().AddJsonProtocol(options => { });
-
 builder.Services.AddSingleton<AppMongoContext>();
+builder.Services.AddScoped<HashMessages>();
 builder.Services.AddScoped<IJwt, JWT>();
 builder.Services.AddScoped<IHASH256, HASH256>();
 builder.Services.AddScoped<IRSAHash, RSAHash>();
+
 
 builder.Services.AddCors(options =>
 {
@@ -29,6 +29,7 @@ builder.Services.AddCors(options =>
                           .AllowAnyMethod()
                           .AllowCredentials());
 });
+
 
 var app = builder.Build();
 
@@ -44,6 +45,7 @@ app.Use(async (context, next) =>
     context.Response.OnStarting(() =>
     {
         context.Response.Headers.Add("X-Frame-Options", "DENY");
+
         context.Response.Headers.Add("Content-Security-Policy",
             "default-src 'self'; " +
             "script-src 'self' http://localhost:4200 https://localhost:8080 https://localhost:8081 'unsafe-inline' 'unsafe-eval'; " +
@@ -59,18 +61,15 @@ app.Use(async (context, next) =>
 
 app.UseCors("AllowSpecificOrigin");
 app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
 app.UseAuthorization();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Delivery API");
-        c.RoutePrefix = "swagger";
-    });
+    app.UseSwaggerUI();
 }
 
-app.MapGet("/", () => Results.Redirect("/swagger"));
-app.MapControllers();
 
+app.MapControllers();
 await app.RunAsync();
