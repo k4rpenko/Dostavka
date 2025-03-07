@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +13,8 @@ namespace PgAdmin.Model
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public List<string>? IDLastDirectors { get; set; } = new();
         public string? Title { get; set; }
+        public string? description { get; set; }
+        public string? background { get; set; }
         public string NameDirector { get; set; }
         public string IdDirector { get; set; }
         public string? Registration { get; set; }
@@ -27,8 +28,9 @@ namespace PgAdmin.Model
         public int? TransportationNumber { get; set; }
         public int? SuccessfulTransportation { get; set; }
         public string? TransportationOnline { get; set; }
+        public List<string>? PostId { get; set; } = new();
         public double? Rating { get; set; }
-        public string? Role { get; set; }
+        public string? RoleWork { get; set; }
         private List<string>? reviewsId = new List<string>();
         public List<string>? ReviewsId
         {
@@ -41,12 +43,5 @@ namespace PgAdmin.Model
         }
 
         public int? ReviewsNumbers { get; private set; }
-        [NotMapped]
-        public object Name { get; set; }
-
-        [NotMapped]
-        public object Address { get; internal set; }
-        [NotMapped]
-        public object Phone { get; set; }
     }
 }

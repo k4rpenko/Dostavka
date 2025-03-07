@@ -14,6 +14,7 @@ public class AppDbContext : DbContext
         _configuration = configuration;
     }
 
+    public DbSet<Posts> Posts { get; set; }
     public DbSet<CarRoles> CarRoles { get; set; }
     public DbSet<Cars> Cars { get; set; }
     public DbSet<Review> Reviews { get; set; }
@@ -27,22 +28,10 @@ public class AppDbContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            var connectionString = _configuration.GetConnectionString("DefaultConnection");
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                connectionString = _configuration.GetSection("Npgsql:ConnectionString").Value;
-            }
-
-            if (!string.IsNullOrEmpty(connectionString))
-            {
-                optionsBuilder.UseNpgsql(connectionString);
-            }
-            else
-            {
-                throw new InvalidOperationException("Рядок підключення PostgreSQL не налаштовано перевірте appsettings.json");
-            }
+            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
         }
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
