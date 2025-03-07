@@ -1,27 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Hash
 {
     public class HashMessages
     {
-        public string HashEncryptObject<T>(T obj, byte[] key, byte[] iv, byte[] tag)
+        public (string encryptedData, byte[] tag) HashEncryptObject<T>(T obj, byte[] key, byte[] iv)
         {
             string json = JsonSerializer.Serialize(obj);
             byte[] jsonBytes = Encoding.UTF8.GetBytes(json);
             byte[] encryptedBytes = new byte[jsonBytes.Length];
+            byte[] tag = new byte[16];
 
             using (var aes = new AesGcm(key))
             {
                 aes.Encrypt(iv, jsonBytes, encryptedBytes, tag);
             }
 
-            return Convert.ToBase64String(encryptedBytes);
+            string encryptedData = Convert.ToBase64String(encryptedBytes);
+            return (encryptedData, tag);
         }
 
         public T HashDecryptObject<T>(string encryptedBase64, byte[] key, byte[] iv, byte[] tag)

@@ -16,6 +16,7 @@ namespace PGAdminDAL.Model
         public string IdShippersWorkers { get; set; }
         public string From { get; set; }
         public string Where { get; set; }
+        public decimal Coust { get; set; }
         public double[] FromCoordinates { get; set; } = new double[2];
         public double[] WhereCoordinates { get; set; } = new double[2];
         public DateTime? StartDate { get; set; }

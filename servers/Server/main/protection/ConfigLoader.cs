@@ -2,7 +2,7 @@
 {
     public class ConfigLoader
     {
-        public static (byte[] Key, byte[] IV, byte[] Tag) LoadEncryptionConfig()
+        public static (byte[] Key, byte[] IV) LoadEncryptionConfig()
         {
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -11,9 +11,8 @@
 
             byte[] key = Convert.FromBase64String(config["Hash:key"]);
             byte[] iv = Convert.FromBase64String(config["Hash:iv"]);
-            byte[] tag = Convert.FromBase64String(config["Hash:tag"]);
 
-            return (key, iv, tag);
+            return (key, iv);
         }
     }
 }

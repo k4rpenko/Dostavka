@@ -14,7 +14,7 @@ public class AppDbContext : DbContext
         _configuration = configuration;
     }
 
-
+    public DbSet<Posts> Posts { get; set; }
     public DbSet<CarRoles> CarRoles { get; set; }
     public DbSet<Cars> Cars { get; set; }
     public DbSet<Review> Reviews { get; set; }

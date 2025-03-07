@@ -314,6 +314,9 @@ namespace PgAdmin.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<List<string>>("PostId")
+                        .HasColumnType("text[]");
+
                     b.Property<double?>("Rating")
                         .HasColumnType("double precision");
 
@@ -346,6 +349,12 @@ namespace PgAdmin.Migrations
 
                     b.Property<int?>("WorkersNumber")
                         .HasColumnType("integer");
+
+                    b.Property<string>("background")
+                        .HasColumnType("text");
+
+                    b.Property<string>("description")
+                        .HasColumnType("text");
 
                     b.Property<string>("email")
                         .IsRequired()
@@ -431,6 +440,29 @@ namespace PgAdmin.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Directors");
+                });
+
+            modelBuilder.Entity("PgAdmin.Model.Posts", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("IdCompany")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("PgAdmin.Model.Workers", b =>

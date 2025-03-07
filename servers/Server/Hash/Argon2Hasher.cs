@@ -1,3 +1,5 @@
+﻿using System.Security.Cryptography;
+using System.Text;
 ﻿using Hash.Interface;
 using Konscious.Security.Cryptography;
 using System;

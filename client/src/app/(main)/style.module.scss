@@ -87,8 +87,7 @@
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
-  width: 140px;
-  height: 20px;
+  width: 180px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -110,4 +109,41 @@
     font-family: var(--font-sfpro-medium);
     letter-spacing: 1px;
   }
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  font-family: var(--font-sfpro-medium);
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
+  a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownContent {
+  display: none;
+}
+
+.dropdownContent {
+  display: block;
 }

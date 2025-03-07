@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K4QM+VWW/dM=",
+  "dgSpecHash": "5DOz3ecN3M8=",
   "success": true,
   "projectFilePath": "D:\\WorkUA\\Csh\\dostavka\\servers\\Server\\main\\main.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\david\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.5.0\\microsoft.identitymodel.tokens.8.5.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\david\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\mongodb.bson\\3.2.0\\mongodb.bson.3.2.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\mongodb.driver\\3.2.0\\mongodb.driver.3.2.0.nupkg.sha512",

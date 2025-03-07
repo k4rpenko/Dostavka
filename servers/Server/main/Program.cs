@@ -14,12 +14,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-builder.Services.AddSignalR();
-builder.Services.AddSignalR().AddJsonProtocol(options => { });
-
-builder.Services.AddSingleton<AppMongoContext>();
 builder.Services.AddScoped<IArgon2Hasher, Argon2Hasher>();
+builder.Services.AddSingleton<AppMongoContext>();
+builder.Services.AddScoped<HashMessages>();
 builder.Services.AddScoped<IJwt, JWT>();
 builder.Services.AddScoped<IHASH256, HASH256>();
 builder.Services.AddScoped<IRSAHash, RSAHash>();

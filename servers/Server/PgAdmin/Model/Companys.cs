@@ -13,6 +13,8 @@ namespace PgAdmin.Model
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public List<string>? IDLastDirectors { get; set; } = new();
         public string? Title { get; set; }
+        public string? description { get; set; }
+        public string? background { get; set; }
         public string NameDirector { get; set; }
         public string IdDirector { get; set; }
         public string? Registration { get; set; }
@@ -26,6 +28,7 @@ namespace PgAdmin.Model
         public int? TransportationNumber { get; set; }
         public int? SuccessfulTransportation { get; set; }
         public string? TransportationOnline { get; set; }
+        public List<string>? PostId { get; set; } = new();
         public double? Rating { get; set; }
         public string? RoleWork { get; set; }
         private List<string>? reviewsId = new List<string>();

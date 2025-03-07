@@ -1,0 +1,30 @@
+export interface WorkerData {
+    Id: string;
+    idCompany: string;
+    IdLastCompany?: string[];
+    FullName: string;
+    Email: string;
+    EmailConfirmation?: boolean;
+    HashPassword: string;
+    PhoneNumber: string;
+    PhoneNumberConfirmation?: boolean;
+    Location?: string;
+    Avatar: string;
+    Role: string;
+    RoleWork: string;
+    TransportationId?: string[];
+    TransportationNumber?: number;
+    SuccessfulTransportation?: number;
+    ChatsId?: string[];
+    ChatsNumber?: number;
+    TruckId?: string[];
+    TruckNumber?: number;
+    PublicServerKey: string;
+    PublicKey: string;
+    PrivateKey: string;
+    CompanyKey: string;
+    RefreshToken?: string;
+    Rating?: number;
+    ReviewsId?: string[];
+    ReviewsNumbers?: number;
+}

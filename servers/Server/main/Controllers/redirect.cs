@@ -46,11 +46,11 @@ namespace main.Controllers
                 return Ok(new { redirectUrl = "http://localhost:3000/login/worker" });
             }
             var Company = await context.Companys.FirstOrDefaultAsync(u => u.Id == worker.idCompany);
-            if(Company.RoleWork == "7")
+            if(Company.RoleWork == "shippers")
             {
                 return Ok(new { redirectUrl = "http://localhost:3000/shippers" });
             }
-            else if (Company.RoleWork == "6")
+            else if (Company.RoleWork == "carriers")
             {
                 return Ok(new { redirectUrl = "http://localhost:3000/carriers" });
             }

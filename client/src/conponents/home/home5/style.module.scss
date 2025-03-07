@@ -1,9 +1,70 @@
-.home5{
-  margin-top: 30px;
-  gap: 70px;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 30px;
+.home5 {
+    padding: 4rem 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #333;
+    text-align: center;
+}
+
+.brandGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.brandLogo {
+    background-color: #f0f0f0; 
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.supplyLinkContainer {
+    padding: 3rem;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.truckContainer {
+    position: relative;
+    width: 100%;
+}
+.supplyLinkImage {
+    width: 100%;
+    height: auto;
+}
+
+.logoOverlay {
+    position: absolute;
+    top: 15%; // Adjust this value to move the logo up or down
+    left: 30%; // Adjust this value to move the logo left or right
+    width: 60%; // Adjust the size of the logo as needed
+    height: auto;
+}
+
+
+.grayFilter {
+  filter: grayscale(100%) brightness(50%) contrast(0%);
 }

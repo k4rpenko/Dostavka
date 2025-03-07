@@ -1,0 +1,38 @@
+.container {
+  padding: 20px;
+  border-radius: var(--border-radius);
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+}
+
+.description,
+.extraInfo,
+.footer {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color-dark);
+}
+
+.services {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.serviceItem {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--text-color-dark);
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.footer {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--text-color-dark);
+}

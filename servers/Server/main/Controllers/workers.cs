@@ -20,24 +20,28 @@ namespace main.Controllers
         private readonly HashMessages _HM;
         private readonly IConfiguration _configuration; 
 
-        public workers(IJwt jwt, AppDbContext _context, IConfiguration configuration)
+        public workers(IJwt jwt, AppDbContext _context, IConfiguration configuration, HashMessages HM)
         {
             context = _context;
             _jwt = jwt;
             _configuration = configuration;
+            _HM = HM;
         }
 
         [HttpPost("set-cookie/{NAME}")]
-        public IActionResult SetCookie(string NAME)
+        public async Task<IActionResult> SetCookie(string NAME)
         {
             string token;
+
             if (NAME == "carriers")
             {
-                token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiZGY5OTU0Mi01ODkxLTRiZmItYWE5Ny0wZTI5Mzg3Mzg3MzgiLCJleHAiOjE3NDE1NjQ4MDB9.WSOEAZnSQXNHjGgus8XgJV16UjY8Rqvie_m8OJ-DR3g";
+                var carriers = await context.Workers.FirstOrDefaultAsync(u => u.RoleWork == "carriers");
+                token = carriers.RefreshToken.ToString();
             }
             else if (NAME == "shippers")
             {
-                token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5NDhiY2QyNi0zNWVhLTQ2ODctODFmMi02YmM3MzFiMWRlY2QiLCJleHAiOjE3NDE1NjQ4MDB9.8l7yC1ay0Y2s9tZwz7LrSTdiJUmN2EiCOtceuNpe9nY";
+                var shippers = await context.Workers.FirstOrDefaultAsync(u => u.RoleWork == "shippers");
+                token = shippers.RefreshToken.ToString();
             }
             else
             {
@@ -105,10 +109,10 @@ namespace main.Controllers
                 ReviewsNumbers = worker.ReviewsId?.Count
             };
 
-            var (key, iv, tag) = ConfigLoader.LoadEncryptionConfig();
-            string encryptedJson = _HM.HashEncryptObject(worker, key, iv, tag);
+            var (key, iv) = ConfigLoader.LoadEncryptionConfig();
+            var (encryptedJson, tag) = _HM.HashEncryptObject(worker, key, iv);
 
-            return Ok(new { WorkerData = encryptedJson });
+            return Ok(new { WorkerData = encryptedJson, tag = tag });
         }
     }
 }
