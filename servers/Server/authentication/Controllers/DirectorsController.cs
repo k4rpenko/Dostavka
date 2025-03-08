@@ -27,14 +27,12 @@ namespace authentication.Controllers
             _configuration = configuration;
         }
 
-        // GET: api/Directors
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Directors>>> GetDirectors()
         {
             return await _context.Directors.ToListAsync();
         }
 
-        // GET: api/Directors/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Directors>> GetDirector(string id)
         {
@@ -48,7 +46,6 @@ namespace authentication.Controllers
             return director;
         }
 
-        // POST: api/Directors
         [HttpPost]
         public async Task<ActionResult<Directors>> PostDirector(Directors director)
         {
@@ -59,7 +56,6 @@ namespace authentication.Controllers
             return CreatedAtAction("GetDirector", new { id = director.Id }, director);
         }
 
-        // PUT: api/Directors/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDirector(string id, Directors director)
         {
@@ -89,7 +85,6 @@ namespace authentication.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Directors/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDirector(string id)
         {
