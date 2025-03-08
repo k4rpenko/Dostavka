@@ -1,19 +1,16 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-﻿using Hash.Interface;
+using Hash.Interface;
 using Konscious.Security.Cryptography;
-using System;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace Hash
 {
     public class Argon2Hasher : IArgon2Hasher
     {
-        public string Encrypt(string password, string Key)
+        public string Encrypt(string password, string key)
         {
             byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
-            byte[] salt = Encoding.UTF8.GetBytes(Key);
+            byte[] salt = Encoding.UTF8.GetBytes(key);
 
             using (var argon2 = new Argon2i(passwordBytes))
             {
@@ -34,7 +31,28 @@ namespace Hash
             {
                 rng.GetBytes(salt);
             }
-            return salt.ToString();
+            return Convert.ToBase64String(salt);
+        }
+
+        public string GenerateHash(string password)
+        {
+            return Encrypt(password, GenerateKey());
+        }
+
+        public bool VerifyHash(string hashedPassword, string password)
+        {
+            string newHash = Encrypt(password, GenerateKey());
+            return hashedPassword == newHash;
+        }
+
+        public string Hash(string password)
+        {
+            return GenerateHash(password);
+        }
+
+        public bool Verify(string hashedPassword, string password)
+        {
+            return VerifyHash(hashedPassword, password);
         }
     }
 }

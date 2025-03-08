@@ -2,7 +2,9 @@
 {
     public interface IArgon2Hasher
     {
-        public string Encrypt(string password, string Key);
-        public string GenerateKey();
+        string GenerateHash(string password);
+        bool VerifyHash(string hashedPassword, string password);
+        string Hash(string password);
+        bool Verify(string hashedPassword, string password);
     }
 }
