@@ -6,6 +6,9 @@ A platform that unites carriers and product owners, helping to find a reliable p
 - next.js
 - asp.net
 
+# Design
+Design Figma: https://www.figma.com/design/SJ71x3HAH1ejxX0d0OiWpU/WWW?node-id=0-1&p=f&t=U6k3K4kyHjgMEqCT-0
+
 ### Frontend: Next  
 
 1. Change to the `client` directory (or the corresponding directory with Angular code).  
@@ -76,5 +79,3 @@ A platform that unites carriers and product owners, helping to find a reliable p
        "ConnectionString": ""
      }
    }
-# Design
-Design Figma: https://www.figma.com/design/SJ71x3HAH1ejxX0d0OiWpU/WWW?node-id=0-1&p=f&t=U6k3K4kyHjgMEqCT-0
